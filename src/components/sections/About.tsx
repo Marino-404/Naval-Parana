@@ -17,12 +17,12 @@ const About = () => {
 
       <div className="absolute  inset-0 bg-[#021d3d]/80 z-10" />
 
-      <div className="relative xl:mt-58 mt-50 z-10 text-center max-w-4xl">
-        <h1 className="text-5xl sm:text-5xl xl:text-7xl font-semibold text-detail mb-4 tracking-wide">
+      <div className="relative xl:mt-58 mt-40 z-10 text-center max-w-4xl">
+        <h1 className="text-6xl sm:text-5xl xl:text-7xl font-bold text-detail mb-4 tracking-wide uppercase">
           {aboutTextContent(lang).title}
         </h1>
 
-        <div className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-gray-400">
+        <div className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-detail">
           <h2 className="custom-font-montserrat font-light">
             {aboutTextContent(lang).subtitle}
           </h2>

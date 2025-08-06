@@ -44,7 +44,7 @@ const Header = () => {
   }, [showMenu]);
 
   const baseClasses =
-    "w-[100%]  font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 h-18 fixed xl:top-2 left-1/2 -translate-x-1/2  xl:rounded-full";
+    "w-[100%] font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 h-18 fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full";
   const scrolledClasses = "xl:w-[86%] bg-black/45 backdrop-blur-md";
 
   const headerClasses = `${baseClasses} ${
@@ -74,12 +74,14 @@ const Header = () => {
             menuAnimatingOut ? "slide-up" : "slide-down"
           }`}
         >
-          <li className={navStyles}>{headerTextContent(lang).one}</li>
-          <li className={navStyles}>{headerTextContent(lang).two}</li>
-          <li className={navStyles}>{headerTextContent(lang).three}</li>
-          <li className={navStyles}>{headerTextContent(lang).four}</li>
-          <li className={navStyles}>{headerTextContent(lang).five}</li>
-          <li className={navStyles}>{headerTextContent(lang).six}</li>
+          <ul>
+            <li className={navStyles}>{headerTextContent(lang).one}</li>
+            <li className={navStyles}>{headerTextContent(lang).two}</li>
+            <li className={navStyles}>{headerTextContent(lang).three}</li>
+            <li className={navStyles}>{headerTextContent(lang).four}</li>
+            <li className={navStyles}>{headerTextContent(lang).five}</li>
+            <li className={navStyles}>{headerTextContent(lang).six}</li>
+          </ul>
           <div className="absolute bottom-[50px] pl-12 left-0 text-xl font-normal text-detail">
             Naval Paraná
           </div>
