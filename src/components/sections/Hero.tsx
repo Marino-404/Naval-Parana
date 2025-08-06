@@ -1,4 +1,3 @@
-import React from "react";
 import GallerySection from "../GallerySection";
 
 const Hero = () => {

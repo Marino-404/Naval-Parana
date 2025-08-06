@@ -1,4 +1,3 @@
-import React from "react";
 import CardServices from "../ui/CardServices";
 
 const ServicesSection = () => {

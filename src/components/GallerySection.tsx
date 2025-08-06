@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { textContent } from "../utils/text-content";
 import { galleryImages } from "../utils/galleries";
 import LightboxGallery from "./ui/LightboxGallery";
