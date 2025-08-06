@@ -117,9 +117,7 @@ export const textContent = (lang: boolean) => ({
       cta: lang ? "Ver más imágenes" : "View more images",
     },
     three: {
-      title: lang
-        ? "Montajes en plantas industriales"
-        : "Assemblies in Industrial Plants",
+      title: lang ? "Montajes industriales" : "Industrial Assemblies ",
       cta: lang ? "Ver más imágenes" : "View more images",
     },
   },

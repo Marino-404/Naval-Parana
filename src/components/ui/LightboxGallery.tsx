@@ -48,10 +48,10 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
           <X size={32} />
         </button>
 
-        <div className="relative w-[80%] flex justify-center items-center px-4">
+        <div className="relative w-[98%] flex justify-center items-center px-4">
           <button
             onClick={goPrev}
-            className="text-white z-40 absolute left-2 top-1/2 -translate-y-1/2 xl:static"
+            className="text-white z-40 absolute left-0 top-1/2 -translate-y-1/2 xl:static cursor-pointer"
           >
             <ChevronLeft size={48} />
           </button>
@@ -59,12 +59,12 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
           <img
             src={currentImage}
             alt="Gallery"
-            className="w-[90vw] max-w-[600px] h-[70vh] object-cover rounded-xl"
+            className="w-[95vw] max-w-[800px] h-[70vh] object-cover rounded-xl xl:mx-12 mx-0"
           />
 
           <button
             onClick={goNext}
-            className="text-white z-40 absolute right-2 top-1/2 -translate-y-1/2 xl:static"
+            className="text-white z-40 absolute right-0 top-1/2 -translate-y-1/2 xl:static cursor-pointer"
           >
             <ChevronRight size={48} />
           </button>

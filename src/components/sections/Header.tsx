@@ -74,14 +74,12 @@ const Header = () => {
             menuAnimatingOut ? "slide-up" : "slide-down"
           }`}
         >
-          <ul>
-            <li className={navStyles}>{headerTextContent(lang).one}</li>
-            <li className={navStyles}>{headerTextContent(lang).two}</li>
-            <li className={navStyles}>{headerTextContent(lang).three}</li>
-            <li className={navStyles}>{headerTextContent(lang).four}</li>
-            <li className={navStyles}>{headerTextContent(lang).five}</li>
-            <li className={navStyles}>{headerTextContent(lang).six}</li>
-          </ul>
+          <li className={navStyles}>{headerTextContent(lang).one}</li>
+          <li className={navStyles}>{headerTextContent(lang).two}</li>
+          <li className={navStyles}>{headerTextContent(lang).three}</li>
+          <li className={navStyles}>{headerTextContent(lang).four}</li>
+          <li className={navStyles}>{headerTextContent(lang).five}</li>
+          <li className={navStyles}>{headerTextContent(lang).six}</li>
           <div className="absolute bottom-[50px] pl-12 left-0 text-xl font-normal text-detail">
             Naval Paraná
           </div>

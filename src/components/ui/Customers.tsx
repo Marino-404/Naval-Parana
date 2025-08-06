@@ -15,7 +15,10 @@ const Customers = () => {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 px-8 gap-12 w-full max-w-7xl">
         {customers.map((customer) => (
-          <div key={customer.id} className="flex items-center justify-center ">
+          <div
+            key={customer.id}
+            className="flex items-center justify-center rounded-lg border-1 border-gray-600 opacity-40 px-5 py-5"
+          >
             <img
               src={customer.src}
               alt={customer.alt}
