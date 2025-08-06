@@ -17,7 +17,7 @@ const About = () => {
 
       <div className="absolute  inset-0 bg-[#021d3d]/80 z-10" />
 
-      <div className="relative md:mt-70 mt-28 z-10 text-center max-w-4xl">
+      <div className="relative md:mt-58 mt-50 z-10 text-center max-w-4xl">
         <h1 className="text-5xl sm:text-5xl md:text-7xl font-semibold text-detail mb-4 tracking-wide">
           {aboutTextContent(lang).title}
         </h1>
@@ -44,7 +44,7 @@ const About = () => {
         </div>
       </div>
 
-      <div className="relative z-10 mt-2 sm:mt-6 md:mb-32 mb-10">
+      <div className="relative z-10 mt-2 sm:mt-6 md:mb-32 mb-24">
         <Button>
           {lang ? "Disponibilidad inmediata" : "Immediate Availability"}
         </Button>

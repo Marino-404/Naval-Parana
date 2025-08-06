@@ -17,7 +17,7 @@ import { Settings, Droplets, ShieldCheck, Anchor, Ship } from "lucide-react";
 const Services = () => {
   const { lang } = useAppState();
   return (
-    <div className="absolute -mt-20 w-full h-auto z-12 text-primary flex md:flex-row flex-col items-center  gap-8 px-12">
+    <div className="absolute -mt-20 w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center  gap-8 px-12">
       <div className={cardStyles}>
         <div className="flex flex-col">
           <Anchor className={iconStyles} />
