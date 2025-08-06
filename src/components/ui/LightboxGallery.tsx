@@ -48,7 +48,7 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
           <X size={32} />
         </button>
 
-        <div className="flex flex-col md:flex-row items-center gap-8 px-4 max-w-full w-full justify-center">
+        <div className="flex flex-col xl:flex-row items-center gap-8 px-4 max-w-full w-full justify-center">
           <button onClick={goPrev} className="text-white cursor-pointer z-40">
             <ChevronLeft size={48} />
           </button>
@@ -68,13 +68,13 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
   }
 
   return (
-    <div className="flex flex-col md:flex-row overflow-x-auto gap-4 w-full">
+    <div className="flex flex-col xl:flex-row overflow-x-auto gap-4 w-full">
       {images.slice(0, 3).map((src, idx) => (
         <img
           key={idx}
           src={src}
           alt={`Preview image ${idx + 1}`}
-          className="w-full md:w-72 h-48 object-cover rounded-xl"
+          className="w-full xl:w-72 h-48 object-cover rounded-xl"
         />
       ))}
     </div>

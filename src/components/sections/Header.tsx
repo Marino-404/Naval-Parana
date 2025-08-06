@@ -44,8 +44,8 @@ const Header = () => {
   }, [showMenu]);
 
   const baseClasses =
-    "w-[100%]  font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 h-18 fixed md:top-2 left-1/2 -translate-x-1/2  md:rounded-full";
-  const scrolledClasses = "md:w-[86%] bg-black/45 backdrop-blur-md";
+    "w-[100%]  font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 h-18 fixed xl:top-2 left-1/2 -translate-x-1/2  xl:rounded-full";
+  const scrolledClasses = "xl:w-[86%] bg-black/45 backdrop-blur-md";
 
   const headerClasses = `${baseClasses} ${
     showMenu ? scrolledClasses : isScrolled ? scrolledClasses : ""
@@ -54,10 +54,10 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="flex items-center gap-2">
-        <img src={Logo} alt="Logo" className="h-10 md:h-12" />
+        <img src={Logo} alt="Logo" className="h-10 xl:h-12" />
       </div>
 
-      <nav className="hidden md:flex text-detail justify-center w-full">
+      <nav className="hidden xl:flex text-detail justify-center w-full">
         <ul className="flex flex-row items-center gap-12">
           <li className={navStyles}>{headerTextContent(lang).one}</li>
           <li className={navStyles}>{headerTextContent(lang).two}</li>
@@ -70,7 +70,7 @@ const Header = () => {
 
       {shouldRenderMenu && (
         <nav
-          className={`fixed top-[72px] left-0 w-full rounded-md h-[calc(100vh-72px)] bg-primary text-detail flex flex-col items-start pl-12 gap-6 pt-10 text-xl font-light md:hidden z-10 ${
+          className={`fixed top-[72px] left-0 w-full rounded-md h-[calc(100vh-72px)] bg-primary text-detail flex flex-col items-start pl-12 gap-6 pt-10 text-xl font-light xl:hidden z-10 ${
             menuAnimatingOut ? "slide-up" : "slide-down"
           }`}
         >
@@ -95,7 +95,7 @@ const Header = () => {
         </span>
 
         <button
-          className="md:hidden text-detail relative w-6 h-4 flex flex-col justify-between items-center group z-50"
+          className="xl:hidden text-detail relative w-6 h-4 flex flex-col justify-between items-center group z-50"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
