@@ -5,7 +5,6 @@ import {
   iconStyles,
   titleCardStyle,
   descriptionCardStyle,
-  circleIconStyle,
 } from "./styles/styles";
 import { useAppState } from "../../store/app-state";
 import {
