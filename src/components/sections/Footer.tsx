@@ -1,10 +1,62 @@
+import { MapPinned, Phone, Mail } from "lucide-react";
+import { textFooterStyle, iconsFooterStyle } from "../ui/styles/styles";
+
 const Footer = () => {
   return (
-    <div className="relative w-full h-200 bg-gradient-to-r from-[#021d3d] to-[#043d70]  text-[#efece6] flex items-center justify-center">
-      <p className="text-sm">
-        © 2023 Naval Paraná. Todos los derechos reservados.
-      </p>
-    </div>
+    <footer className="bg-primary text-detail w-full pb-20 ">
+      <div className="w-[80%]  mx-auto h-px bg-gray-600 opacity-40 xl:mb-20 mb-12" />
+      <div className="flex xl:w-[80%] w-[92%] mx-auto flex-col xl:flex-row justify-between gap-8 relative">
+        <div className="flex flex-col xl:w-[70%] mx-auto gap-4 lg:w-1/2">
+          <div className="flex flex-col gap-4">
+            <div className="flex flex-row gap-2">
+              <MapPinned className={iconsFooterStyle} />
+              <p className={textFooterStyle}>
+                Gervaso 390, (S2154DMQ) Capitán Bermúdez, Santa Fe.
+              </p>
+            </div>
+
+            <div className="flex flex-row gap-2">
+              <Phone className={iconsFooterStyle} />
+              <p className={textFooterStyle}>(0341) 4911372</p>
+            </div>
+            <div className="flex flex-row gap-2">
+              <Mail className={iconsFooterStyle} />
+              <p className={textFooterStyle}>operaciones@navalparana.com.ar</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-start lg:items-end lg:w-1/2">
+          <div className="flex flex-row gap-2">
+            <img
+              src="/img/footer/prefectura-escudo.png"
+              alt="Prefectura Naval"
+              width={120}
+              height={120}
+              className="object-contain"
+            />
+            <img
+              src="/img/footer/datafiscal.jpg"
+              alt="datafiscal"
+              width={58}
+              height={58}
+              className="object-contain"
+            />
+          </div>
+          <p className="text-sm mt-6">
+            Diseñado y desarrollado por{" "}
+            <a
+              href="https://portfoliojuanmarino.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-highlight transition"
+            >
+              Juan Marino
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
   );
 };
 

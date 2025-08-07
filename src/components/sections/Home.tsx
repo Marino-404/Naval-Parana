@@ -4,7 +4,7 @@ import Location from "../ui/Localion";
 
 const Home = () => {
   return (
-    <div className="bg-gradient-to-r from-[#021d3d] to-[#043d70]">
+    <div className="bg-primary">
       <GallerySection />
       <Customers />
       <Location />

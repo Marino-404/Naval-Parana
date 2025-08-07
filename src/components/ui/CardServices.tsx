@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import {
   cardStyles,
   iconStyles,
@@ -14,11 +16,39 @@ import {
 } from "../../utils/text-content";
 import { Settings, Droplets, ShieldCheck, Anchor, Ship } from "lucide-react";
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+    },
+  },
+};
+
 const Services = () => {
   const { lang } = useAppState();
+
   return (
-    <div className="absolute -mt-20 w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center  gap-8 px-12">
-      <div className={cardStyles}>
+    <motion.div
+      className="absolute -mt-20 w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center gap-8 px-12"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+      <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
           <Anchor className={iconStyles} />
           <div className={titleCardStyle}>
@@ -28,9 +58,9 @@ const Services = () => {
             {cardTextContentAnchor(lang).description}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className={cardStyles}>
+      <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
           <Ship className={iconStyles} />
           <div className={titleCardStyle}>
@@ -40,9 +70,9 @@ const Services = () => {
             {cardTextContentShip(lang).description}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className={cardStyles}>
+      <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
           <Droplets className={iconStyles} />
           <div className={titleCardStyle}>
@@ -52,10 +82,10 @@ const Services = () => {
             {cardTextContentDroplets(lang).description}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className={cardStyles}>
-        <div className="flex flex-col ">
+      <motion.div className={cardStyles} variants={cardVariants}>
+        <div className="flex flex-col">
           <ShieldCheck className={iconStyles} />
           <div className={titleCardStyle}>
             {cardTextContentShield(lang).title}
@@ -64,10 +94,10 @@ const Services = () => {
             {cardTextContentShield(lang).description}
           </div>
         </div>
-      </div>
+      </motion.div>
 
-      <div className={cardStyles}>
-        <div className="flex flex-col  ">
+      <motion.div className={cardStyles} variants={cardVariants}>
+        <div className="flex flex-col">
           <Settings className={iconStyles} />
           <div className={titleCardStyle}>
             {cardTextContentSettings(lang).title}
@@ -76,8 +106,8 @@ const Services = () => {
             {cardTextContentSettings(lang).description}
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
 
