@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { textContent } from "../../utils/text-content";
 import { galleryImages } from "../../utils/galleries";
 import LightboxGallery from "./LightboxGallery";
@@ -12,6 +12,20 @@ const GallerySection: React.FC = () => {
     null | "one" | "two" | "three"
   >(null);
 
+  useEffect(() => {
+    if (activeSection) {
+      // Bloquea scroll
+      document.body.style.overflow = "hidden";
+    } else {
+      // Permite scroll
+      document.body.style.overflow = "";
+    }
+    // Limpieza por si se desmonta
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [activeSection]);
+
   const sections: Array<"one" | "two" | "three"> = ["one", "two", "three"];
 
   return (
@@ -19,6 +33,7 @@ const GallerySection: React.FC = () => {
       {sections.map((key) => (
         <div
           key={key}
+          id={key}
           className="flex flex-col w-full text-center items-center"
         >
           <SectionDivider

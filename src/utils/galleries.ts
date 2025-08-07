@@ -1,5 +1,4 @@
-// utils/galleries.js
-
+//galeria de imagenes
 export const galleryImages = {
   one: [
     "/img/gallery/repairs/repairs1.jpg",

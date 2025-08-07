@@ -3,17 +3,21 @@ import { create } from "zustand";
 export interface AppState {
   lang: boolean;
   showMenu: boolean;
-  activeSection: null | "one" | "two" | "three";
+  navActive: boolean;
+  currentSection: string;
   changeLang: (lang: boolean) => void;
   setShowMenu: (showMenu: boolean) => void;
-  setActiveSection: (section: null | "one" | "two" | "three") => void;
+  setNavActive: (navActive: boolean) => void;
+  setCurrentSection: (section: string) => void;
 }
 
 export const useAppState = create<AppState>((set) => ({
   lang: true,
   showMenu: false,
-  activeSection: null,
+  navActive: false,
+  currentSection: "home",
   changeLang: (lang: boolean) => set({ lang }),
   setShowMenu: (showMenu: boolean) => set({ showMenu }),
-  setActiveSection: (activeSection) => set({ activeSection }),
+  setNavActive: (navActive: boolean) => set({ navActive }),
+  setCurrentSection: (section) => set({ currentSection: section }),
 }));

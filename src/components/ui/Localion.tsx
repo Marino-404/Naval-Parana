@@ -6,7 +6,10 @@ const Location = () => {
   const { lang } = useAppState();
 
   return (
-    <section className="relative xl:w-[80%] w-full mx-auto pb-24 flex flex-col items-center text-detail">
+    <section
+      id="five"
+      className="relative xl:w-[80%] w-full mx-auto pb-24 flex flex-col items-center text-detail"
+    >
       <SectionDivider label={lang ? "Ubicación" : "Location"} />
 
       <div className="xl:w-[80%] w-full h-[450px] px-4 xl:px-0 mt-8 gap-4 flex flex-col items-center">
