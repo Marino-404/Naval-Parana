@@ -37,7 +37,6 @@ const About = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const translateY = Math.min(scrollY * -0.15, 0);
   const overlayOpacity = Math.min(0.8 + scrollY / 800, 0.95); // capa base más oscura y más opaca con scroll
 
   return (
