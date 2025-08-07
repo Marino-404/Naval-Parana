@@ -11,7 +11,6 @@ const Header = () => {
     changeLang,
     showMenu,
     setShowMenu,
-    navActive,
     setNavActive,
     currentSection,
     setCurrentSection,
