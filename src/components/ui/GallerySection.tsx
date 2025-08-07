@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { textContent } from "../../utils/text-content";
 import { galleryImages } from "../../utils/galleries";
@@ -32,14 +31,10 @@ const GallerySection: React.FC = () => {
   return (
     <div className="flex flex-col xl:w-[80%] w-full mx-auto gap-20  text-center items-center mb-24">
       {sections.map((key) => (
-        <motion.div
+        <div
           key={key}
           id={key}
           className="flex flex-col w-full text-center items-center"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <SectionDivider
             label={textContent(lang).gallerySections[key].title}
@@ -50,7 +45,7 @@ const GallerySection: React.FC = () => {
               {textContent(lang).gallerySections[key].cta}
             </Button>
           </div>
-        </motion.div>
+        </div>
       ))}
 
       {activeSection && (
