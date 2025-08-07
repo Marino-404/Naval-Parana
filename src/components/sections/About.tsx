@@ -45,19 +45,10 @@ const About = () => {
       className="relative w-full flex flex-col items-center text-white gap-6 px-4 sm:px-6 pb-20 overflow-hidden bg-primary"
       // agregamos bg-primary al contenedor para que el fondo que se ve sea ese color
     >
-      <motion.img
+      <img
         src={AboutImage}
         alt="Naval Paraná - fondo"
         className="absolute inset-0 w-full h-full object-cover object-center z-0 scale-100"
-        style={{ translateY }}
-        initial={{ scale: 1 }}
-        animate={{ scale: 1.05 }}
-        transition={{
-          duration: 20,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "reverse",
-        }}
       />
 
       {/* Capa oscura con opacidad base más alta */}

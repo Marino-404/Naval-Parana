@@ -5,8 +5,8 @@ const Footer = () => {
   return (
     <footer className="bg-primary text-detail w-full pb-20 ">
       <div className="w-[80%]  mx-auto h-px bg-gray-600 opacity-40 xl:mb-20 mb-12" />
-      <div className="flex xl:w-[80%] w-[92%] mx-auto flex-col xl:flex-row justify-between gap-8 relative">
-        <div className="flex flex-col xl:w-[70%] mx-auto gap-4 lg:w-1/2">
+      <div className="flex xl:w-[80%] w-[92%] mx-auto flex-col xl:flex-row justify-between gap-8 relative px-2">
+        <div className="flex flex-col xl:w-[70%] items-start gap-4 ">
           <div className="flex flex-col gap-4">
             <div className="flex flex-row gap-2">
               <MapPinned className={iconsFooterStyle} />
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col items-start lg:items-end lg:w-1/2">
+        <div className="flex flex-col items-start lg:items-end ">
           <div className="flex flex-row gap-2">
             <img
               src="/img/footer/prefectura-escudo.png"
@@ -49,7 +49,7 @@ const Footer = () => {
               href="https://portfoliojuanmarino.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline hover:text-highlight transition"
+              className="underline text-secondary hover:text-highlight transition"
             >
               Juan Marino
             </a>
