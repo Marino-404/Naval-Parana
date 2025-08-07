@@ -29,7 +29,7 @@ const GallerySection: React.FC = () => {
   const sections: Array<"one" | "two" | "three"> = ["one", "two", "three"];
 
   return (
-    <div className="flex flex-col xl:w-[80%] w-full mx-auto gap-20  text-center items-center mb-24">
+    <div className="flex flex-col xl:w-[80%] w-full mx-auto gap-20  text-center items-center mb-24 ">
       {sections.map((key) => (
         <div
           key={key}
@@ -40,7 +40,7 @@ const GallerySection: React.FC = () => {
             label={textContent(lang).gallerySections[key].title}
           />
           <LightboxGallery images={galleryImages[key]} />
-          <div className="mt-8">
+          <div className="mt-14">
             <Button onClick={() => setActiveSection(key)}>
               {textContent(lang).gallerySections[key].cta}
             </Button>

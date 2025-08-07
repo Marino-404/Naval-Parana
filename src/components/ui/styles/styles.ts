@@ -7,6 +7,8 @@ export const cardStyles =
 export const iconStyles =
   "w-8 h-8 mb-2 text-secondary transition-colors duration-300 flex";
 
+export const circleIconStyle = "p-3 bg-secondary/20 rounded-full";
+
 export const titleCardStyle =
   "text-md font-semibold text-primary  transition-colors duration-300";
 

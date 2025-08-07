@@ -5,6 +5,7 @@ import {
   iconStyles,
   titleCardStyle,
   descriptionCardStyle,
+  circleIconStyle,
 } from "./styles/styles";
 import { useAppState } from "../../store/app-state";
 import {
@@ -58,6 +59,7 @@ const Services = () => {
             {cardTextContentAnchor(lang).description}
           </div>
         </div>
+        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
       <motion.div className={cardStyles} variants={cardVariants}>
@@ -70,6 +72,7 @@ const Services = () => {
             {cardTextContentShip(lang).description}
           </div>
         </div>
+        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
       <motion.div className={cardStyles} variants={cardVariants}>
@@ -82,6 +85,7 @@ const Services = () => {
             {cardTextContentDroplets(lang).description}
           </div>
         </div>
+        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
       <motion.div className={cardStyles} variants={cardVariants}>
@@ -94,6 +98,7 @@ const Services = () => {
             {cardTextContentShield(lang).description}
           </div>
         </div>
+        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
       <motion.div className={cardStyles} variants={cardVariants}>
@@ -106,6 +111,7 @@ const Services = () => {
             {cardTextContentSettings(lang).description}
           </div>
         </div>
+        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
     </motion.div>
   );

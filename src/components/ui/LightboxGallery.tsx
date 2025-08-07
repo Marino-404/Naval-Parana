@@ -36,7 +36,7 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
 
     return (
       <div
-        className={`fixed inset-0 z-50 bg-primary bg-opacity-90 flex flex-col justify-center items-center transition-all duration-300 ${
+        className={`fixed inset-0 z-50 bg-primary bg-opacity-90 flex flex-col justify-center items-center  ${
           animating ? "opacity-0 scale-95" : "opacity-100 scale-100"
         }`}
         onWheel={(e) => e.stopPropagation()}
@@ -80,7 +80,7 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
           key={idx}
           src={src}
           alt={`Preview image ${idx + 1}`}
-          className="w-full xl:w-72 h-48 object-cover rounded-xl"
+          className="w-full xl:w-72 h-48 object-cover rounded-lg border-2 border-secondary"
         />
       ))}
     </div>
