@@ -40,7 +40,7 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
 
   // Cerrar galería si clickean en el fondo
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (e.target === containerRef.current) {
+    if (e.currentTarget === e.target) {
       onClose?.();
     }
   };
