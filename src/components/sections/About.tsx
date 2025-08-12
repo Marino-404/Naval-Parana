@@ -99,7 +99,14 @@ const About = () => {
         className="relative z-10 mt-2 sm:mt-6 xl:mb-32 mb-24"
         variants={fadeUp}
       >
-        <Button>
+        <Button
+          onClick={() => {
+            const el = document.getElementById("six");
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
+        >
           {lang ? "Disponibilidad inmediata" : "Immediate Availability"}
         </Button>
       </motion.div>
