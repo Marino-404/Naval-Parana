@@ -59,22 +59,28 @@ const GallerySection: React.FC = () => {
           />
 
           <div
-            className="flex flex-col w-full items-center  "
+            className="flex flex-col w-full items-center"
             style={{
               minHeight: sectionMinHeight,
             }}
           >
             <Works group={sectionMap[key]} />
 
-            <LightboxGallery
-              images={galleryImages[key]}
-              onOpenImage={(idx) => setActiveSection({ key, startIndex: idx })}
-            />
+            <div className="w-[90%] xl:w-[50%] gap-6 flex flex-col items-center bg-gradient-to-br from-detail to-[#b6c8d9] rounded-sm border-2 border-secondary p-8">
+              <LightboxGallery
+                images={galleryImages[key]}
+                onOpenImage={(idx) =>
+                  setActiveSection({ key, startIndex: idx })
+                }
+              />
 
-            <div className="mt-6 ">
-              <Button onClick={() => setActiveSection({ key, startIndex: 0 })}>
-                {textContent(lang).gallerySections[key].cta}
-              </Button>
+              <div className="mt-6 ">
+                <Button
+                  onClick={() => setActiveSection({ key, startIndex: 0 })}
+                >
+                  {textContent(lang).gallerySections[key].cta}
+                </Button>
+              </div>
             </div>
           </div>
         </div>

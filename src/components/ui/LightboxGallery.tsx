@@ -160,7 +160,7 @@ const LightboxGallery: React.FC<LightboxGalleryProps> = ({
   }
 
   return (
-    <div className="flex flex-col  xl:flex-row mx-auto overflow-x-auto gap-8 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-sm border-2 border-secondary p-8 shadow-lg xl:w-[50%] w-[90%] items-center justify-center ">
+    <div className="flex flex-col  xl:flex-row mx-auto overflow-x-auto gap-8   w-[90%] items-center justify-center ">
       {images.slice(0, 3).map((src, idx) => (
         <img
           key={idx}
