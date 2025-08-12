@@ -43,6 +43,10 @@ const Header = () => {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const baseClasses =
     "w-[100%] font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 xl:h-15 h-18 fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full";
   const scrolledClasses = "xl:w-[86%] bg-black/45 backdrop-blur-md";
@@ -53,7 +57,12 @@ const Header = () => {
   return (
     <header className={headerClasses}>
       <div className="flex items-center gap-2">
-        <img src={Logo} alt="Logo" className="h-10 xl:h-10" />
+        <img
+          src={Logo}
+          alt="Logo"
+          onClick={scrollToTop}
+          className="h-10 xl:h-10"
+        />
       </div>
 
       {/* Desktop nav */}

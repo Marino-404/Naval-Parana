@@ -29,6 +29,11 @@ const About = () => {
 
   const [scrollY, setScrollY] = useState(0);
 
+  const scrollToContact = () => {
+    const el = document.getElementById("six");
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     const onScroll = () => {
       setScrollY(window.scrollY);
@@ -99,14 +104,7 @@ const About = () => {
         className="relative z-10 mt-2 sm:mt-6 xl:mb-32 mb-24"
         variants={fadeUp}
       >
-        <Button
-          onClick={() => {
-            const el = document.getElementById("six");
-            if (el) {
-              el.scrollIntoView({ behavior: "smooth" });
-            }
-          }}
-        >
+        <Button onClick={scrollToContact}>
           {lang ? "Disponibilidad inmediata" : "Immediate Availability"}
         </Button>
       </motion.div>
