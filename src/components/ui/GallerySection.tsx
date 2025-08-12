@@ -74,7 +74,7 @@ const GallerySection: React.FC = () => {
                 }
               />
 
-              <div className="mt-6 ">
+              <div className="mt-6">
                 <Button
                   onClick={() => setActiveSection({ key, startIndex: 0 })}
                 >
@@ -87,12 +87,14 @@ const GallerySection: React.FC = () => {
       ))}
 
       {activeSection && (
-        <LightboxGallery
-          images={galleryImages[activeSection.key]}
-          showFullGallery
-          initialIndex={activeSection.startIndex}
-          onClose={() => setActiveSection(null)}
-        />
+        <>
+          <LightboxGallery
+            images={galleryImages[activeSection.key]}
+            showFullGallery
+            initialIndex={activeSection.startIndex}
+            onClose={() => setActiveSection(null)}
+          />
+        </>
       )}
     </div>
   );
