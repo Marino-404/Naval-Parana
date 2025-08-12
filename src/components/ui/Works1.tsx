@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAppState } from "../../store/app-state";
 import {
   worksContent1,
@@ -15,6 +15,22 @@ interface WorksProps {
 const Works: React.FC<WorksProps> = ({ group }) => {
   const { lang } = useAppState();
   const [open, setOpen] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    setIsDesktop(mediaQuery.matches);
+    setOpen(mediaQuery.matches);
+
+    const handler = (event: MediaQueryListEvent) => {
+      setIsDesktop(event.matches);
+      setOpen(event.matches);
+    };
+    mediaQuery.addEventListener("change", handler);
+
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
 
   const getWorks = () => {
     switch (group) {
@@ -31,45 +47,61 @@ const Works: React.FC<WorksProps> = ({ group }) => {
 
   const works = getWorks();
 
+  const title =
+    group === 1
+      ? lang
+        ? "Reparaciones"
+        : "Repairs"
+      : group === 2
+      ? lang
+        ? "Mantenimiento y montajes"
+        : "Maintenance & assemblies"
+      : lang
+      ? "Montajes"
+      : "Assemblies";
+
   return (
-    <div className="w-[90%] max-w-3xl mx-auto mb-12">
-      <button
-        onClick={() => setOpen(!open)}
-        className="cursor-pointer w-full flex justify-between items-center bg-gradient-to-br from-detail to-[#b6c8d9] p-4 rounded-lg border-1 border-secondary shadow-lg hover:shadow-xl transition-all duration-300"
+    <div className="xl:w-[40%] w-[80%] mx-auto  mb-12">
+      {/* Siempre mostramos el rectángulo */}
+      <div
+        className={`h-12 mb-6 w-full flex justify-between border-r  items-center bg-gradient-to-br from-detail to-[#b6c8d9] p-4 rounded-sm border border-secondary shadow-lg transition-all duration-300 ${
+          isDesktop ? "cursor-default" : "cursor-pointer"
+        }`}
+        // Solo toggle en mobile
+        onClick={() => !isDesktop && setOpen(!open)}
         aria-expanded={open}
-        aria-controls="works-list"
+        aria-controls={`works-list-${group}`}
+        role={!isDesktop ? "button" : undefined}
+        tabIndex={!isDesktop ? 0 : undefined}
+        onKeyDown={(e) => {
+          if (!isDesktop && (e.key === "Enter" || e.key === " ")) {
+            e.preventDefault();
+            setOpen(!open);
+          }
+        }}
       >
-        <h3 className="text-primary text-xl font-light">
-          {group === 1
-            ? lang
-              ? "Trabajos"
-              : "Works"
-            : group === 2
-            ? lang
-              ? "Trabajos"
-              : "Works"
-            : lang
-            ? "Trabajos"
-            : "Works"}
-        </h3>
-        <ChevronDown
-          className={`cursor-pointer text-secondary w-6 h-6 transform transition-transform duration-300 ${
-            open ? "rotate-180" : "rotate-0"
-          }`}
-        />
-      </button>
+        <h3 className="text-primary text-xl font-light">{title}</h3>
+        {/* Mostrar ícono solo en mobile */}
+        {!isDesktop && (
+          <ChevronDown
+            className={`text-secondary w-6 h-6 transform transition-transform duration-300 ${
+              open ? "rotate-180" : "rotate-0"
+            }`}
+          />
+        )}
+      </div>
 
       <AnimatePresence initial={false}>
-        {open && (
+        {(open || isDesktop) && (
           <motion.ul
-            id="works-list"
+            id={`works-list-${group}`}
             role="region"
-            aria-labelledby="works-list"
+            aria-labelledby={`works-list-${group}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="mt-6 space-y-3 pl-0 overflow-hidden"
+            className="mt-0 space-y-3 overflow-hidden px-4  border-r border-b border-secondary" // mt-0 para que quede pegado al rectángulo
           >
             {works.map((work, index) => (
               <li

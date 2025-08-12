@@ -8,7 +8,7 @@ const AboutNaval = () => {
   const { lang } = useAppState();
 
   return (
-    <section className="w-full bg-primary pb-16 px-4">
+    <section className="w-full pt-44 pb-14 bg-primary px-4">
       <div className="max-w-6xl mx-auto flex flex-col xl:flex-row items-center gap-10">
         {/* Imagen con overlay */}
         <motion.div
@@ -21,14 +21,14 @@ const AboutNaval = () => {
           <img
             src={aboutnaval}
             alt="Sobre Naval Paraná"
-            className="w-full max-w-xl h-96 object-cover rounded-2xl shadow-2xl group-hover:scale-105 transition-transform duration-500"
+            className="w-full max-w-xl h-104 object-cover rounded-sm shadow-2xl group-hover:scale-105 transition-transform duration-500"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent rounded-2xl"></div>
         </motion.div>
 
         {/* Tarjeta de texto mejorada */}
         <motion.div
-          className="flex flex-col justify-center max-w-xl bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xl border-2 border-secondary p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-primary"
+          className="flex flex-col justify-center max-w-xl bg-gradient-to-br from-detail to-[#b6c8d9] rounded-sm border-2 border-secondary p-8 shadow-lg hover:shadow-xl transition-all duration-300 text-primary"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}

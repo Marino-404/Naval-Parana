@@ -11,13 +11,13 @@ const Footer = () => {
             <div className="flex flex-row gap-2">
               <MapPinned className={iconsFooterStyle} />
               <p className={textFooterStyle}>
-                Gervaso 390, (S2154DMQ) Capitán Bermúdez, Santa Fe.
+                Av. Gervaso 377, Capitán Bermúdez, Santa Fe.
               </p>
             </div>
 
             <div className="flex flex-row gap-2">
               <Phone className={iconsFooterStyle} />
-              <p className={textFooterStyle}>(0341) 4911372</p>
+              <p className={textFooterStyle}>(0341) 6030702</p>
             </div>
             <div className="flex flex-row gap-2">
               <Mail className={iconsFooterStyle} />

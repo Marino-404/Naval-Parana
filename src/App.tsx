@@ -4,7 +4,7 @@ import ServicesSection from "./components/sections/Services";
 import Home from "./components/sections/Home";
 import Footer from "./components/sections/Footer";
 import AboutNaval from "./components/sections/AboutNaval";
-
+import Contact from "./components/sections/Contact";
 function App() {
   return (
     <>
@@ -13,6 +13,7 @@ function App() {
       <ServicesSection />
       <AboutNaval />
       <Home />
+      <Contact />
       <Footer />
     </>
   );

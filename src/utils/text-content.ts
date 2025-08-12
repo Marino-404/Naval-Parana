@@ -310,3 +310,17 @@ export const worksContent3 = {
     { title: "Hydraulic torqueing" },
   ],
 };
+
+export const contactTextContent = (lang: boolean) => {
+  if (lang) {
+    return {
+      h1: "Disponibilidad inmediata.",
+      subtitle: "Contáctanos para recibir respuesta rápida y personalizada.",
+    };
+  } else {
+    return {
+      h1: "Immediate Availability",
+      subtitle: "Get in touch for a quick and personalized response.",
+    };
+  }
+};

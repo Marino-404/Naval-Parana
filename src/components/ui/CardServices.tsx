@@ -42,7 +42,7 @@ const Services = () => {
 
   return (
     <motion.div
-      className="absolute -mt-20 w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center gap-8 px-12"
+      className="relative -mt-20 w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center gap-8 px-14"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

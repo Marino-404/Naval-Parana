@@ -3,6 +3,8 @@ import type { Variants } from "framer-motion";
 import SectionDivider from "./SectionDivider";
 import { useAppState } from "../../store/app-state";
 
+const MENU_HEIGHT = 80;
+
 const customers = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   src: `/img/customers/customers${i + 1}.png`,
@@ -33,7 +35,11 @@ const Customers = () => {
   return (
     <section
       id="four"
-      className="relative xl:w-[80%] w-full mx-auto flex flex-col items-center text-detail mb-24"
+      className="relative xl:w-[80%] w-full mx-auto flex flex-col items-center text-detail "
+      style={{
+        paddingTop: MENU_HEIGHT,
+        boxSizing: "border-box",
+      }}
     >
       <SectionDivider label={lang ? "Clientes" : "Customers"} />
 
@@ -47,7 +53,7 @@ const Customers = () => {
         {customers.map((customer) => (
           <motion.div
             key={customer.id}
-            className="flex items-center justify-center bg-gradient-to-br from-detail to-[#b6c8d9] rounded-lg border-2 border-secondary opacity-90 px-5 py-5"
+            className="flex items-center justify-center bg-gradient-to-br from-detail to-[#b6c8d9] rounded-sm border-2 border-secondary opacity-90 px-5 py-5"
             variants={itemVariants}
             whileHover={{ scale: 1.1, opacity: 1 }}
             transition={{ duration: 0.3 }}

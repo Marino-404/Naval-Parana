@@ -5,9 +5,11 @@ import LightboxGallery from "./LightboxGallery";
 import Button from "./Button";
 import { useAppState } from "../../store/app-state";
 import SectionDivider from "./SectionDivider";
-import Works from "./Works1"; // tu Works que acepta prop group
+import Works from "./Works1";
 
 type SectionKey = "one" | "two" | "three";
+
+const MENU_HEIGHT = 80;
 
 const GallerySection: React.FC = () => {
   const { lang } = useAppState();
@@ -17,6 +19,8 @@ const GallerySection: React.FC = () => {
     startIndex: number;
   }>(null);
 
+  const [sectionMinHeight, setSectionMinHeight] = useState(0);
+
   useEffect(() => {
     document.body.style.overflow = activeSection ? "hidden" : "";
     return () => {
@@ -24,9 +28,17 @@ const GallerySection: React.FC = () => {
     };
   }, [activeSection]);
 
+  useEffect(() => {
+    function updateHeight() {
+      setSectionMinHeight(window.innerHeight - MENU_HEIGHT);
+    }
+    updateHeight();
+    window.addEventListener("resize", updateHeight);
+    return () => window.removeEventListener("resize", updateHeight);
+  }, []);
+
   const sections: SectionKey[] = ["one", "two", "three"];
 
-  // Relaciona cada sección con el grupo Works correspondiente
   const sectionMap: Record<SectionKey, 1 | 2 | 3> = {
     one: 1,
     two: 2,
@@ -34,35 +46,40 @@ const GallerySection: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col xl:w-[80%] w-full mx-auto gap-20 text-center items-center mb-24">
+    <div className="flex flex-col w-full mx-auto text-center items-center ">
       {sections.map((key) => (
         <div
           key={key}
           id={key}
-          className="flex flex-col w-full text-center items-center"
+          className="flex flex-col w-full justify-center "
+          style={{ paddingTop: `${MENU_HEIGHT}px`, boxSizing: "border-box" }}
         >
           <SectionDivider
             label={textContent(lang).gallerySections[key].title}
           />
 
-          {/* Works correspondiente */}
-          <Works group={sectionMap[key]} />
+          <div
+            className="flex flex-col w-full items-center  "
+            style={{
+              minHeight: sectionMinHeight,
+            }}
+          >
+            <Works group={sectionMap[key]} />
 
-          {/* Preview con click para abrir full gallery */}
-          <LightboxGallery
-            images={galleryImages[key]}
-            onOpenImage={(idx) => setActiveSection({ key, startIndex: idx })}
-          />
+            <LightboxGallery
+              images={galleryImages[key]}
+              onOpenImage={(idx) => setActiveSection({ key, startIndex: idx })}
+            />
 
-          <div className="mt-14">
-            <Button onClick={() => setActiveSection({ key, startIndex: 0 })}>
-              {textContent(lang).gallerySections[key].cta}
-            </Button>
+            <div className="mt-4 ">
+              <Button onClick={() => setActiveSection({ key, startIndex: 0 })}>
+                {textContent(lang).gallerySections[key].cta}
+              </Button>
+            </div>
           </div>
         </div>
       ))}
 
-      {/* Galería fullscreen */}
       {activeSection && (
         <LightboxGallery
           images={galleryImages[activeSection.key]}

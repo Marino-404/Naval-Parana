@@ -2,23 +2,36 @@ import { useAppState } from "../../store/app-state";
 import Logo from "../../../public/img/logo.png";
 import { headerTextContent } from "../../utils/text-content";
 import { navStyles } from "../ui/styles/styles";
-import { useEffect, useState } from "react";
 import { HiLanguage } from "react-icons/hi2";
 
-const Header = () => {
-  const {
-    lang,
-    changeLang,
-    showMenu,
-    setShowMenu,
-    setNavActive,
-    currentSection,
-    setCurrentSection,
-  } = useAppState();
-  const [isScrolled, setIsScrolled] = useState(false);
+import { useActiveSection } from "../../hooks/useActiveSection";
+import { useScrollPosition } from "../../hooks/useScrollPosition";
+import { useMobileMenu } from "../../hooks/useMobileMenu";
+import { useLanguage } from "../../hooks/useLanguage";
 
-  const toggleLanguage = () => changeLang(!lang);
-  const toggleMenu = () => setShowMenu(!showMenu);
+const Header = () => {
+  const { setNavActive, setCurrentSection } = useAppState();
+
+  const { lang, toggleLanguage } = useLanguage();
+  const isScrolled = useScrollPosition(30);
+  const {
+    showMenu,
+    shouldRenderMenu,
+    menuAnimatingOut,
+    toggleMenu,
+    setShowMenu,
+  } = useMobileMenu();
+
+  const navItems = [
+    { id: "one", label: headerTextContent(lang).one },
+    { id: "two", label: headerTextContent(lang).two },
+    { id: "three", label: headerTextContent(lang).three },
+    { id: "four", label: headerTextContent(lang).four },
+    { id: "five", label: headerTextContent(lang).five },
+    { id: "six", label: headerTextContent(lang).six },
+  ];
+  const sectionIds = navItems.map((item) => item.id);
+  const activeSection = useActiveSection(sectionIds, 0.6);
 
   const handleNavClick = (sectionId: string) => {
     setCurrentSection(sectionId);
@@ -29,55 +42,13 @@ const Header = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!showMenu) {
-        setIsScrolled(window.scrollY > 30);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [showMenu]);
-
-  useEffect(() => {
-    document.body.style.overflow = showMenu ? "hidden" : "auto";
-  }, [showMenu]);
-
-  const [shouldRenderMenu, setShouldRenderMenu] = useState(false);
-  const [menuAnimatingOut, setMenuAnimatingOut] = useState(false);
-
-  useEffect(() => {
-    if (showMenu) {
-      setShouldRenderMenu(true);
-      setMenuAnimatingOut(false);
-    } else if (shouldRenderMenu) {
-      setMenuAnimatingOut(true);
-      const timeout = setTimeout(() => {
-        setShouldRenderMenu(false);
-      }, 300);
-      return () => clearTimeout(timeout);
-    }
-  }, [showMenu]);
-
-  //diferentes clases dependiendo el header activo}
 
   const baseClasses =
     "w-[100%] font-light z-30 transition-all duration-500 ease-in-out flex items-center justify-between px-6 xl:h-15 h-18 fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full";
   const scrolledClasses = "xl:w-[86%] bg-black/45 backdrop-blur-md";
-
   const headerClasses = `${baseClasses} ${
     showMenu ? scrolledClasses : isScrolled ? scrolledClasses : ""
   }`;
-
-  const navItems = [
-    { id: "one", label: headerTextContent(lang).one },
-    { id: "two", label: headerTextContent(lang).two },
-    { id: "three", label: headerTextContent(lang).three },
-    { id: "four", label: headerTextContent(lang).four },
-    { id: "five", label: headerTextContent(lang).five },
-    { id: "six", label: headerTextContent(lang).six },
-  ];
 
   return (
     <header className={headerClasses}>
@@ -92,7 +63,7 @@ const Header = () => {
             <li key={id}>
               <button
                 className={
-                  navStyles + (currentSection === id ? " text-secondary" : "")
+                  navStyles + (activeSection === id ? " text-secondary" : "")
                 }
                 onClick={() => handleNavClick(id)}
               >
@@ -115,7 +86,7 @@ const Header = () => {
               <li key={id}>
                 <button
                   className={
-                    navStyles + (currentSection === id ? " text-secondary" : "")
+                    navStyles + (activeSection === id ? " text-secondary" : "")
                   }
                   onClick={() => handleNavClick(id)}
                 >
