@@ -61,7 +61,7 @@ const Works: React.FC<WorksProps> = ({ group }) => {
       : "Assemblies";
 
   return (
-    <div className="xl:w-[40%] w-[80%] mx-auto  mb-12">
+    <div className="xl:w-[40%] w-[80%] mx-auto mb-6 xl:mb-12">
       {/* Siempre mostramos el rectángulo */}
       <div
         className={`h-12 mb-6 w-full flex justify-between border-r  items-center bg-gradient-to-br from-detail to-[#b6c8d9] p-4 rounded-sm border border-secondary shadow-lg transition-all duration-300 ${

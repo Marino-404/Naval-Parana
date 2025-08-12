@@ -5,7 +5,7 @@ import LightboxGallery from "./LightboxGallery";
 import Button from "./Button";
 import { useAppState } from "../../store/app-state";
 import SectionDivider from "./SectionDivider";
-import Works from "./Works1";
+import Works from "./Works";
 
 type SectionKey = "one" | "two" | "three";
 
@@ -71,7 +71,7 @@ const GallerySection: React.FC = () => {
               onOpenImage={(idx) => setActiveSection({ key, startIndex: idx })}
             />
 
-            <div className="mt-4 ">
+            <div className="mt-6 ">
               <Button onClick={() => setActiveSection({ key, startIndex: 0 })}>
                 {textContent(lang).gallerySections[key].cta}
               </Button>
