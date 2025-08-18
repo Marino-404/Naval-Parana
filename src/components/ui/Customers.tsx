@@ -21,30 +21,22 @@ const Customers = () => {
   const controls = useAnimation();
 
   useEffect(() => {
-    const updateAnimation = () => {
-      const isMobile = window.innerWidth < 640;
+    const isMobile = window.innerWidth < 640;
 
-      controls.start({
-        x: isMobile ? ["0%", "-160%"] : ["0%", "-80%"], // más distancia en mobile
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: isMobile ? 8 : 20, // duración más corta en mobile
-            ease: "linear",
-          },
+    controls.start({
+      x: isMobile ? ["0%", "-160%"] : ["0%", "-80%"],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: isMobile ? 8 : 20,
+          ease: "linear",
         },
-      });
-    };
-
-    updateAnimation();
-    window.addEventListener("resize", updateAnimation);
-
-    return () => window.removeEventListener("resize", updateAnimation);
+      },
+    });
   }, [controls]);
-
   return (
-    <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary py-20">
+    <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20 ">
       <div className="xl:w-[86%] w-[94%] overflow-hidden">
         <motion.div className="flex gap-4 sm:gap-6" animate={controls}>
           {customers.map((customer) => (
