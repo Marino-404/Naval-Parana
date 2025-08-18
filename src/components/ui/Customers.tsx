@@ -82,7 +82,7 @@ const Customers = () => {
           {customers.map((customer) => (
             <motion.div
               key={`duplicate-${customer.id}`}
-              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-44 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
+              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
               variants={itemVariants}
             >
               <img
