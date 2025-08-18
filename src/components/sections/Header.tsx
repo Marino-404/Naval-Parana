@@ -69,7 +69,7 @@ const Header = () => {
               <li key={id}>
                 <button
                   className={`${navStyles} text-detail transition-colors font-normal text-md hover:text-secondary ${
-                    currentSection === id ? "text-secondary font-normal" : ""
+                    currentSection === id ? "text-secondary" : ""
                   }`}
                   onClick={() => handleNavClick(id)}
                 >

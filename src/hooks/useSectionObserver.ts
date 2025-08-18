@@ -2,13 +2,13 @@ import { useEffect } from "react";
 import { useAppState } from "../store/app-state";
 
 export const useSectionObserver = (sectionIds: string[]) => {
-  const { setCurrentSection } = useAppState();
+  const { currentSection, setCurrentSection } = useAppState();
 
   useEffect(() => {
     const options = { root: null, rootMargin: "0px", threshold: 0.6 };
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && currentSection !== entry.target.id) {
           setCurrentSection(entry.target.id);
         }
       });
@@ -20,5 +20,5 @@ export const useSectionObserver = (sectionIds: string[]) => {
     });
 
     return () => observer.disconnect();
-  }, [sectionIds, setCurrentSection]);
+  }, [sectionIds, currentSection, setCurrentSection]);
 };

@@ -90,17 +90,23 @@ const About = () => {
             {/* Texto dinámico */}
             <span className="text-secondary text-start font-bold">
               <Typewriter
-                words={[
-                  lang ? "ingeniería." : "engineering.",
-
-                  lang ? "seguridad." : "safety.",
-
-                  lang ? "innovación." : "innovation.",
-
-                  lang ? "eficiencia." : "efficiency.",
-
-                  lang ? "sostenibilidad." : "sustainability.",
-                ]}
+                words={
+                  lang
+                    ? [
+                        "ingeniería.",
+                        "seguridad.",
+                        "innovación.",
+                        "eficiencia.",
+                        "sostenibilidad.",
+                      ]
+                    : [
+                        "engineering.",
+                        "safety.",
+                        "innovation.",
+                        "efficiency.",
+                        "sustainability.",
+                      ]
+                }
                 loop={true}
                 cursor
                 cursorStyle="|"
