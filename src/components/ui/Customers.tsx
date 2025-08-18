@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const customers = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
@@ -19,47 +19,56 @@ const itemVariants: Variants = {
 
 const Customers = () => {
   const controls = useAnimation();
-  const isMobileRef = useRef<boolean>(window.innerWidth < 640);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [itemWidth, setItemWidth] = useState(0);
 
   useEffect(() => {
-    const startAnimation = (mobile: boolean) => {
-      controls.start({
-        x: mobile ? ["0%", "-160%"] : ["0%", "-80%"],
-        transition: {
-          x: {
-            repeat: Infinity,
-            repeatType: "loop",
-            duration: mobile ? 8 : 20,
-            ease: "linear",
-          },
-        },
-      });
-    };
-
-    // Animación inicial
-    startAnimation(isMobileRef.current);
-
-    // Escucha cambios de tamaño
-    const handleResize = () => {
-      const nowMobile = window.innerWidth < 640;
-      if (nowMobile !== isMobileRef.current) {
-        isMobileRef.current = nowMobile;
-        startAnimation(nowMobile);
+    const updateWidths = () => {
+      if (containerRef.current) {
+        const firstItem =
+          containerRef.current.querySelector<HTMLDivElement>(".customer-item");
+        if (firstItem) setItemWidth(firstItem.offsetWidth + 16); // +16 por gap
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, [controls]);
+    updateWidths();
+    window.addEventListener("resize", updateWidths);
+    return () => window.removeEventListener("resize", updateWidths);
+  }, []);
+
+  useEffect(() => {
+    if (!itemWidth) return;
+
+    const isMobile = window.innerWidth < 640;
+    const totalItems = customers.length * 2; // duplicados
+    const distance = itemWidth * customers.length; // cuánto mover antes de reiniciar
+
+    controls.start({
+      x: [0, -distance],
+      transition: {
+        x: {
+          repeat: Infinity,
+          repeatType: "loop",
+          duration: isMobile ? 12 : 20,
+          ease: "linear",
+        },
+      },
+    });
+  }, [controls, itemWidth]);
 
   return (
-    <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20 ">
+    <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20">
       <div className="xl:w-[86%] w-[94%] overflow-hidden">
-        <motion.div className="flex gap-2 sm:gap-6" animate={controls}>
+        <motion.div
+          ref={containerRef}
+          className="flex gap-4 sm:gap-6"
+          animate={controls}
+        >
+          {/* Items originales */}
           {customers.map((customer) => (
             <motion.div
               key={customer.id}
-              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
+              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
               variants={itemVariants}
             >
               <img
@@ -69,11 +78,12 @@ const Customers = () => {
               />
             </motion.div>
           ))}
-          {/* Duplicados para loop */}
+
+          {/* Duplicados para loop infinito */}
           {customers.map((customer) => (
             <motion.div
               key={`duplicate-${customer.id}`}
-              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-44 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
+              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-44 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
               variants={itemVariants}
             >
               <img
