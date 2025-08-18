@@ -29,8 +29,6 @@ const itemVariants: Variants = {
 };
 
 const Customers = () => {
-  const { lang } = useAppState();
-
   return (
     <section
       id="four"
