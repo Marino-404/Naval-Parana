@@ -1,115 +1,68 @@
+import { aboutNavalTextContent } from "../../utils/text-content";
+import aboutnaval from "../../../public/img/aboutnaval.jpg";
 import { useAppState } from "../../store/app-state";
-import { aboutTextContent } from "../../utils/text-content";
-import AboutImage from "../../../public/img/about2.png";
-import { Typewriter } from "react-simple-typewriter";
-import Button from "../ui/Button";
+import { HardHat } from "lucide-react";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
 
-const containerVariants = {
-  hidden: {},
-  visible: {
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1 },
-  },
-};
-
-const About = () => {
+const AboutNaval = () => {
   const { lang } = useAppState();
 
-  const [scrollY, setScrollY] = useState(0);
-
-  const scrollToContact = () => {
-    const el = document.getElementById("six");
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const onScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  const overlayOpacity = Math.min(0.8 + scrollY / 800, 0.95); // capa base más oscura y más opaca con scroll
-
   return (
-    <section
-      className="relative w-full flex flex-col items-center text-white gap-6 px-4 sm:px-6 pb-20 overflow-hidden bg-primary"
-      // agregamos bg-primary al contenedor para que el fondo que se ve sea ese color
-    >
-      <img
-        src={AboutImage}
-        alt="Naval Paraná - fondo"
-        className="absolute inset-0 w-full h-full object-cover object-center z-0 scale-100"
-      />
-
-      {/* Capa oscura con opacidad base más alta */}
-      <div
-        className="absolute inset-0 bg-[#021d3d] z-10"
-        style={{ opacity: overlayOpacity }}
-      />
-
-      <motion.div
-        className="relative xl:mt-58 mt-40 z-10 text-center max-w-4xl"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <motion.h1
-          className="text-6xl sm:text-5xl xl:text-7xl font-bold text-detail mb-4 tracking-wide uppercase"
-          variants={fadeUp}
-        >
-          {aboutTextContent(lang).title}
-        </motion.h1>
-
+    <section className="w-full py-20 bg-primary px-4">
+      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row rounded-lg overflow-hidden shadow-2xl border-2 border-secondary">
+        {/* Imagen */}
         <motion.div
-          className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-detail"
-          variants={fadeUp}
+          className="xl:w-1/2 w-full h-96 xl:h-auto"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
         >
-          <h2 className="custom-font-montserrat font-light">
-            {aboutTextContent(lang).subtitle}
-          </h2>
-          <span className="text-secondary font-bold">
-            <Typewriter
-              words={[
-                lang ? "Ingeniería." : "Engineering.",
-                lang ? "Reparaciones portuarias." : "Port Repairs.",
-                lang ? "Montajes." : "Assemblies.",
-              ]}
-              loop={true}
-              cursor
-              cursorStyle="|"
-              typeSpeed={40}
-              deleteSpeed={20}
-              delaySpeed={3000}
-            />
-          </span>
+          <img
+            src={aboutnaval}
+            alt="Sobre Naval Paraná"
+            className="w-full h-full object-cover"
+          />
         </motion.div>
-      </motion.div>
 
-      <motion.div
-        className="relative z-10 mt-2 sm:mt-6 xl:mb-32 mb-24"
-        variants={fadeUp}
-      >
-        <Button onClick={scrollToContact}>
-          {lang ? "Disponibilidad inmediata" : "Immediate Availability"}
-        </Button>
-      </motion.div>
+        {/* Texto */}
+        <motion.div
+          className="xl:w-1/2 w-full bg-gradient-to-br from-detail to-[#b6c8d9] p-10 flex flex-col justify-center text-primary"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          {/* Encabezado con icono */}
+          <div className="flex flex-col items-start text-start gap-2 mb-4">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                type: "spring",
+                stiffness: 200,
+                damping: 12,
+                delay: 0.4,
+              }}
+            >
+              <HardHat className="w-10 h-10 text-secondary" />
+            </motion.div>
+            <h2 className="text-3xl font-bold tracking-wide">
+              {lang ? "Sobre Nosotros" : "About Us"}
+            </h2>
+          </div>
+
+          {/* Texto */}
+          <p className="text-lg leading-relaxed">
+            {aboutNavalTextContent(lang).h1}
+          </p>
+
+          {/* Línea inferior decorativa */}
+          <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
+        </motion.div>
+      </div>
     </section>
   );
 };
 
-export default About;
+export default AboutNaval;

@@ -1,21 +1,17 @@
 export const headerTextContent = (lang = true) => {
   if (lang) {
     return {
-      one: "Reparaciones navales",
-      two: "Trabajos en muelle",
-      three: "Montajes en plantas industriales",
-      four: "Clientes",
-      five: "Localización",
-      six: "Contacto",
+      home: "Home",
+      trabajos: "Servicios",
+      sobreNosotros: "Sobre nosotros",
+      contacto: "Contacto",
     };
   } else {
     return {
-      one: "Ship Repairs",
-      two: "Dock Work",
-      three: "Assemblies in Industrial Plants",
-      four: "Customers",
-      five: "Location",
-      six: "Contact",
+      home: "Home",
+      trabajos: "Services",
+      sobreNosotros: "About Us",
+      contacto: "Contact",
     };
   }
 };
@@ -105,57 +101,6 @@ export const cardTextContentSettings = (lang = true) => {
     };
   }
 };
-
-export const textContent = (lang: boolean) => ({
-  gallerySections: {
-    one: {
-      title: lang ? "Reparaciones navales" : "Ship Repairs",
-      cta: lang ? "Ver más imágenes" : "View more images",
-      works: [
-        lang ? "Boiler" : "Calderas",
-        lang
-          ? "Welding on deck or Hull structures performed by Qualified welders & procedure qualification"
-          : "Soldadura en cubierta o casco realizada por soldadores calificados y calificación de procedimiento",
-        lang
-          ? "Search, rescue & replacement of lost anchor & chain by Qualified divers"
-          : "Búsqueda, rescate y reemplazo de anclas y cadenas por buzos calificados",
-        lang
-          ? "Welding of shackles (anchor, swivel & link shackles)"
-          : "Soldadura de grilletes (ancla, giratorio y de unión)",
-      ],
-    },
-    two: {
-      title: lang ? "Trabajos en muelle" : "Dock Work",
-      cta: lang ? "Ver más imágenes" : "View more images",
-      works: [
-        lang ? "Port defenses" : "Defensas portuarias",
-        lang ? "Bollards" : "Bolardos",
-        lang ? "Dolphins" : "Delfines",
-        lang
-          ? "Fire line pipes, inspection and certification of lifting equipments"
-          : "Tuberías contra incendio, inspección y certificación de equipos de izado",
-        // ... resto
-      ],
-    },
-    three: {
-      title: lang ? "Montajes industriales" : "Industrial Assemblies ",
-      cta: lang ? "Ver más imágenes" : "View more images",
-      works: [
-        lang ? "Engineering" : "Ingeniería",
-        lang
-          ? "Industrial assemblies (general maintenance of boilers)"
-          : "Montajes industriales (mantenimiento general de calderas)",
-        lang
-          ? "Manufacturing, assembly and maintenance of pipes in general"
-          : "Fabricación, montaje y mantenimiento de tuberías en general",
-        lang
-          ? "Inspection: Non-destructive tests"
-          : "Inspección: Ensayos no destructivos",
-        // ... resto
-      ],
-    },
-  },
-});
 
 export const aboutNavalTextContent = (lang: boolean) => {
   if (lang) {

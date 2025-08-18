@@ -1,8 +1,8 @@
-import SectionDivider from "../ui/SectionDivider";
 import Button from "../ui/Button";
 import { useAppState } from "../../store/app-state";
 import { contactTextContent } from "../../utils/text-content";
 import { Phone, Mail, MessageCircle } from "lucide-react";
+import Location from "../ui/Location";
 
 const MENU_HEIGHT = 80;
 
@@ -26,8 +26,6 @@ const Contact = () => {
         boxSizing: "border-box",
       }}
     >
-      <SectionDivider label={lang ? "Contacto" : "Contact"} />
-
       <h1 className="mb-4 xl:text-5xl text-2xl font-bold tracking-wide text-center drop-shadow-sm max-w-3xl">
         {contactTextContent(lang).h1}
       </h1>
@@ -36,7 +34,7 @@ const Contact = () => {
         {contactTextContent(lang).subtitle}
       </p>
 
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center w-full max-w-3xl">
+      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center w-full max-w-3xl mb-12">
         <Button
           onClick={() => window.open(telLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
@@ -67,6 +65,7 @@ const Contact = () => {
           {lang ? "Enviar correo" : "Send Email"}
         </Button>
       </div>
+      <Location />
     </section>
   );
 };

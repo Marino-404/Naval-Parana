@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import SectionDivider from "./SectionDivider";
 import { useAppState } from "../../store/app-state";
 
 const MENU_HEIGHT = 80;
@@ -41,8 +40,6 @@ const Customers = () => {
         boxSizing: "border-box",
       }}
     >
-      <SectionDivider label={lang ? "Clientes" : "Customers"} />
-
       <motion.div
         className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 px-8 gap-12 w-full max-w-7xl"
         variants={containerVariants}

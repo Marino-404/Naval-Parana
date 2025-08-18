@@ -1,5 +1,5 @@
 export const navStyles =
-  "navbar nav-underline min-w-auto flex items-center justify-center cursor-pointer   transition-colors gap-2 items-center justify-center";
+  "navbar nav-underline min-w-auto flex items-center justify-center cursor-pointer font-normal  transition-colors gap-2 items-center justify-center";
 
 export const cardStyles =
   "xl:w-1/5 w-full md:h-40 bg-gradient-to-br from-detail to-[#b6c8d9] p-5 rounded-sm border-2 border-primary px-5 transition-all duration-300 border-solid border-secondary shadow-lg hover:shadow-xl ";
