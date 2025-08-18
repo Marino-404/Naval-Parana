@@ -40,7 +40,6 @@ const Customers = () => {
     if (!itemWidth) return;
 
     const isMobile = window.innerWidth < 640;
-    const totalItems = customers.length * 2; // duplicados
     const distance = itemWidth * customers.length; // cuánto mover antes de reiniciar
 
     controls.start({
