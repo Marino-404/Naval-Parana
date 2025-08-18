@@ -78,12 +78,15 @@ const About = () => {
           </motion.h1>
 
           <motion.div
-            className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row justify-center gap-1 sm:gap-2 text-detail"
+            className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-detail "
             variants={fadeUp}
           >
-            <h2 className="custom-font-montserrat font-light">
+            {/* Texto estático */}
+            <h2 className="custom-font-montserrat font-light mr-1 opacity-80">
               {aboutTextContent(lang).subtitle}
             </h2>
+
+            {/* Texto dinámico */}
             <span className="text-secondary font-bold">
               <Typewriter
                 words={[

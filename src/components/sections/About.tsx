@@ -9,7 +9,7 @@ const AboutNaval = () => {
 
   return (
     <section className="w-full py-20 bg-primary px-4">
-      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row rounded-lg overflow-hidden shadow-2xl border-2 border-secondary">
+      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row rounded-lg overflow-hidden shadow-2xl ">
         {/* Imagen */}
         <motion.div
           className="xl:w-1/2 w-full h-96 xl:h-auto"
