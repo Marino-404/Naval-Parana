@@ -3,17 +3,17 @@ import Logo from "../../../public/img/logo.png";
 import { headerTextContent } from "../../utils/text-content";
 import { navStyles } from "../ui/styles/styles";
 import { HiLanguage } from "react-icons/hi2";
-
-import { useActiveSection } from "../../hooks/useActiveSection";
 import { useScrollPosition } from "../../hooks/useScrollPosition";
 import { useMobileMenu } from "../../hooks/useMobileMenu";
-import { useLanguage } from "../../hooks/useLanguage";
+import { useSectionObserver } from "../../hooks/useSectionObserver";
 
 const Header = () => {
-  const { setNavActive, setCurrentSection } = useAppState();
-
-  const { lang, toggleLanguage } = useLanguage();
+  const { lang, changeLang, currentSection, setCurrentSection, setNavActive } =
+    useAppState();
   const isScrolled = useScrollPosition(30);
+
+  useSectionObserver(["home", "about", "services", "contact"]);
+
   const {
     showMenu,
     shouldRenderMenu,
@@ -24,59 +24,53 @@ const Header = () => {
 
   const navItems = [
     { id: "home", label: headerTextContent(lang).home },
-    { id: "trabajos", label: headerTextContent(lang).trabajos },
-    { id: "sobre-nosotros", label: headerTextContent(lang).sobreNosotros },
-    { id: "contacto", label: headerTextContent(lang).contacto },
+    { id: "about", label: headerTextContent(lang).sobreNosotros },
+    { id: "services", label: headerTextContent(lang).trabajos },
+    { id: "contact", label: headerTextContent(lang).contacto },
   ];
-
-  const sectionIds = navItems.map((item) => item.id);
-  const activeSection = useActiveSection(sectionIds, 0.6);
 
   const handleNavClick = (sectionId: string) => {
     setCurrentSection(sectionId);
     setNavActive(true);
     setShowMenu(false);
     const section = document.getElementById(sectionId);
-    if (section) {
-      section.scrollIntoView({ behavior: "smooth" });
-    }
+    if (section) section.scrollIntoView({ behavior: "smooth" });
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const baseClasses =
-    "xl:w-[85%] w-full  z-30 transition-all duration-500 ease-in-out fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full text-detail font-normal";
-  const scrolledClasses = "xl:w-[50%] bg-black/45 backdrop-blur-md";
-  const headerClasses = `${baseClasses} ${
-    showMenu ? scrolledClasses : isScrolled ? scrolledClasses : ""
-  } xl:h-15 h-18`;
+  const headerClasses = [
+    "xl:w-[90%] w-full z-30 transition-all duration-500 ease-in-out fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full text-detail font-normal",
+    (isScrolled || showMenu) && "xl:w-[50%] bg-black/45 backdrop-blur-md",
+    "xl:h-13 h-18",
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
     <header className={headerClasses}>
-      <div className="flex items-center justify-between w-full px-6 h-full ">
+      <div className="flex items-center justify-between w-full xl:px-8 px-2  h-full">
         {/* Logo */}
         <div className="flex items-center gap-2 flex-shrink-0 h-full">
           <img
             src={Logo}
             alt="Logo"
             onClick={scrollToTop}
-            className="h-10 xl:h-10 cursor-pointer"
+            className="h-10 xl:h-8 cursor-pointer"
           />
         </div>
 
         {/* Desktop nav */}
-        <nav className="hidden xl:flex absolute left-1/2 -translate-x-1/2 h-full items-center">
+        <nav className="hidden xl:flex  h-full items-center gap-14">
+          {/* Botón idioma en desktop */}
+
           <ul className="flex flex-row items-center gap-14">
             {navItems.map(({ id, label }) => (
-              <li key={id} className="font-normal">
+              <li key={id}>
                 <button
-                  className={
-                    navStyles +
-                    " text-detail transition-colors font-normal text-lg hover:text-secondary" +
-                    (activeSection === id ? "" : "")
-                  }
+                  className={`${navStyles} text-detail transition-colors font-normal text-md hover:text-secondary ${
+                    currentSection === id ? "text-secondary font-normal" : ""
+                  }`}
                   onClick={() => handleNavClick(id)}
                 >
                   {label}
@@ -84,19 +78,26 @@ const Header = () => {
               </li>
             ))}
           </ul>
-        </nav>
 
-        {/* Botón de idioma y menú */}
-        <div className="flex items-center gap-4 flex-shrink-0 h-full">
           <span
             className="cursor-pointer hover:text-secondary text-detail transition-colors"
-            onClick={toggleLanguage}
+            onClick={() => changeLang(!lang)}
+          >
+            <HiLanguage className="w-6 h-6" />
+          </span>
+        </nav>
+
+        {/* Botón idioma + menú en mobile */}
+        <div className="flex items-center gap-4 flex-shrink-0 h-full xl:hidden">
+          <span
+            className="cursor-pointer hover:text-secondary text-detail transition-colors"
+            onClick={() => changeLang(!lang)}
           >
             <HiLanguage className="w-6 h-6" />
           </span>
 
           <button
-            className="xl:hidden text-detail relative w-6 h-4 flex flex-col justify-between items-center group z-50"
+            className="text-detail relative w-6 h-4 flex flex-col justify-between items-center group z-50"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
@@ -130,11 +131,9 @@ const Header = () => {
             {navItems.map(({ id, label }) => (
               <li key={id}>
                 <button
-                  className={
-                    navStyles +
-                    " text-detail" +
-                    (activeSection === id ? " text-secondary font-normal" : "")
-                  }
+                  className={`${navStyles} text-detail ${
+                    currentSection === id ? "text-secondary font-normal" : ""
+                  }`}
                   onClick={() => handleNavClick(id)}
                 >
                   {label}

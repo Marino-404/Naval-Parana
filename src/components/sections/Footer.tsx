@@ -4,8 +4,8 @@ import { textFooterStyle, iconsFooterStyle } from "../ui/styles/styles";
 const Footer = () => {
   return (
     <footer className="bg-primary text-detail w-full pb-20 ">
-      <div className="w-[80%]  mx-auto h-px bg-gray-600 opacity-40 xl:mb-20 mb-12" />
-      <div className="flex xl:w-[80%] w-[92%] mx-auto flex-col xl:flex-row justify-between gap-8 relative px-2">
+      <div className="xl:w-[86%] w-[94%]  mx-auto h-px bg-gray-600 opacity-40 xl:mb-20 mb-12" />
+      <div className="flex xl:w-[86%] w-[94%] mx-auto flex-col xl:flex-row justify-between gap-8 relative px-2">
         <div className="flex flex-col xl:w-[70%] items-start gap-4 ">
           <div className="flex flex-col gap-4">
             <div className="flex flex-row gap-2">

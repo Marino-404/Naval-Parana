@@ -19,13 +19,13 @@ export const headerTextContent = (lang = true) => {
 export const aboutTextContent = (lang = true) => {
   if (lang) {
     return {
-      title: "Naval Paraná",
+      title: "IMPULSANDO LA EXCELENCIA PORTUARIA",
       subtitle:
         "Brindamos soluciones integrales en el ámbito portuario, con foco en",
     };
   } else {
     return {
-      title: "Naval Paraná",
+      title: "Driving Excellence in the Port Industry",
       subtitle:
         "We provide comprehensive solutions in the port sector, focusing on",
     };

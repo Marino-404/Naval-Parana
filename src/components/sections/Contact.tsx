@@ -4,8 +4,6 @@ import { contactTextContent } from "../../utils/text-content";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import Location from "../ui/Location";
 
-const MENU_HEIGHT = 80;
-
 const Contact = () => {
   const { lang } = useAppState();
 
@@ -19,24 +17,22 @@ const Contact = () => {
 
   return (
     <section
-      id="six"
-      className="relative w-full mx-auto pb-28 px-6 flex flex-col items-center bg-primary text-detail"
-      style={{
-        paddingTop: MENU_HEIGHT,
-        boxSizing: "border-box",
-      }}
+      id="contact"
+      className="relative w-full mx-auto pb-28  flex flex-col   bg-primary text-detail"
     >
-      <div className="w-[80%]  mx-auto h-px bg-gray-600 opacity-40 xl:my-20 my-12" />
+      <div className="xl:w-[86%] w-[94%]  mx-auto h-px bg-gray-600 opacity-40 xl:my-20 my-12" />
 
-      <h1 className="mb-4 xl:text-5xl text-2xl font-bold tracking-wide text-center drop-shadow-sm max-w-3xl">
-        {contactTextContent(lang).h1}
-      </h1>
+      <div className="flex flex-col w-[94%] xl:w-[86%] mx-auto justify-start">
+        <h1 className="mb-4 xl:text-6xl text-2xl font-bold tracking-wide text-start  drop-shadow-sm max-w-3xl">
+          {contactTextContent(lang).h1}
+        </h1>
 
-      <p className="mb-12 max-w-2xl text-center text-lg font-light text-detail/80">
-        {contactTextContent(lang).subtitle}
-      </p>
+        <p className="mb-12 max-w-2xl text-start text-lg font-light text-detail/80">
+          {contactTextContent(lang).subtitle}
+        </p>
+      </div>
 
-      <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 justify-center w-full max-w-3xl mb-12">
+      <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col sm:flex-row gap-4 sm:gap-8 justify-start  mb-12">
         <Button
           onClick={() => window.open(telLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
@@ -59,7 +55,7 @@ const Contact = () => {
 
         <Button
           onClick={() => window.open(mailtoLink, "_self")}
-          className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
+          className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-xs shadow-md
              text-detail "
           aria-label={lang ? "Enviar correo" : "Send Email"}
         >

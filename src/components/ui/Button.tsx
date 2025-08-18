@@ -22,11 +22,11 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled}
       className={`
         cursor-pointer
-        text-sm xl:text-md
+        text-sm xl:text-xl
         z-12
-        px-5 xl:px-6
+        px-5 xl:px-8
         py-2
-        rounded-sm
+        rounded-xs
         shadow-lg
         font-normal
         flex

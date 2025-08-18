@@ -8,11 +8,11 @@ const AboutNaval = () => {
   const { lang } = useAppState();
 
   return (
-    <section className="w-full py-20 bg-primary px-4">
-      <div className="max-w-7xl mx-auto flex flex-col xl:flex-row rounded-lg overflow-hidden shadow-2xl ">
+    <section id="about" className="w-full py-28 bg-primary ">
+      <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden">
         {/* Imagen */}
         <motion.div
-          className="xl:w-1/2 w-full h-96 xl:h-auto"
+          className="xl:w-1/2 w-full h-96 xl:h-150"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
@@ -27,7 +27,7 @@ const AboutNaval = () => {
 
         {/* Texto */}
         <motion.div
-          className="xl:w-1/2 w-full bg-gradient-to-br from-detail to-[#b6c8d9] p-10 flex flex-col justify-center text-primary"
+          className="xl:w-1/2 w-full bg-gradient-to-br from-detail to-[#b6c8d9] pl-8 p-10 xl:pl-10 xl:p-24 flex flex-col justify-center  text-primary"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
@@ -45,15 +45,15 @@ const AboutNaval = () => {
                 delay: 0.4,
               }}
             >
-              <HardHat className="w-10 h-10 text-secondary" />
+              <HardHat className="w-14 h-14 text-secondary" />
             </motion.div>
-            <h2 className="text-3xl font-bold tracking-wide">
+            <h2 className="text-5xl font-bold tracking-wide">
               {lang ? "Sobre Nosotros" : "About Us"}
             </h2>
           </div>
 
           {/* Texto */}
-          <p className="text-lg leading-relaxed">
+          <p className="text-lg leading-relaxed opacity-60">
             {aboutNavalTextContent(lang).h1}
           </p>
 

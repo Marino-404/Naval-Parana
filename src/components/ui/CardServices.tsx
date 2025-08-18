@@ -12,9 +12,8 @@ import {
   cardTextContentAnchor,
   cardTextContentDroplets,
   cardTextContentSettings,
-  cardTextContentShield,
 } from "../../utils/text-content";
-import { Settings, Droplets, ShieldCheck, Anchor, Ship } from "lucide-react";
+import { Settings, Droplets, Anchor, Ship } from "lucide-react";
 
 const containerVariants = {
   hidden: {},
@@ -42,7 +41,7 @@ const Services = () => {
 
   return (
     <motion.div
-      className="relative w-full h-auto z-12 text-primary flex xl:flex-row flex-col items-center gap-8 xl:px-14 xl:pt-0 pt-6"
+      className="relative w-full  h-auto z-12 text-primary flex xl:flex-row flex-col items-start justify-between gap-6 xl:pt-0 pt-6"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -87,7 +86,7 @@ const Services = () => {
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
-      <motion.div className={cardStyles} variants={cardVariants}>
+      {/* <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
           <ShieldCheck className={iconStyles} />
           <div className={titleCardStyle}>
@@ -98,7 +97,7 @@ const Services = () => {
           </div>
         </div>
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
-      </motion.div>
+      </motion.div> */}
 
       <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">

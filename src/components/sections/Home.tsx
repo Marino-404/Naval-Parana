@@ -48,7 +48,8 @@ const About = () => {
   return (
     <>
       <section
-        className="relative xl:h-[96vh] h-auto w-full flex flex-col items-center text-white gap-6 px-4 sm:px-6  overflow-hidden bg-primary"
+        id="home"
+        className="relative xl:h-[100vh] h-auto w-full flex flex-col items-center justify-center text-white gap-6   overflow-hidden bg-primary "
         // agregamos bg-primary al contenedor para que el fondo que se ve sea ese color
       >
         <img
@@ -64,21 +65,21 @@ const About = () => {
         />
 
         <motion.div
-          className="relative xl:mt-58 mt-40 z-10 text-center max-w-4xl"
+          className="relative xl:w-[86%] w-[94%]  z-10  justify-start text-start pt-40 xl:pt-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
           <motion.h1
-            className="text-6xl sm:text-5xl xl:text-8xl font-bold text-detail mb-4 tracking-wide uppercase"
+            className="text-4xl  xl:text-8xl font-bold text-detail mb-4 tracking-wide uppercase"
             variants={fadeUp}
           >
             {aboutTextContent(lang).title}
           </motion.h1>
 
           <motion.div
-            className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-detail "
+            className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row items-start gap-1 sm:gap-2 text-detail "
             variants={fadeUp}
           >
             {/* Texto estático */}
@@ -87,12 +88,18 @@ const About = () => {
             </h2>
 
             {/* Texto dinámico */}
-            <span className="text-secondary font-bold">
+            <span className="text-secondary text-start font-bold">
               <Typewriter
                 words={[
-                  lang ? "Ingeniería." : "Engineering.",
-                  lang ? "Reparaciones portuarias." : "Port Repairs.",
-                  lang ? "Montajes." : "Assemblies.",
+                  lang ? "ingeniería." : "engineering.",
+
+                  lang ? "seguridad." : "safety.",
+
+                  lang ? "innovación." : "innovation.",
+
+                  lang ? "eficiencia." : "efficiency.",
+
+                  lang ? "sostenibilidad." : "sustainability.",
                 ]}
                 loop={true}
                 cursor
@@ -106,7 +113,7 @@ const About = () => {
         </motion.div>
 
         <motion.div
-          className="relative z-10 mt-2 sm:mt-6 xl:mb-8"
+          className="relative xl:w-[86%] w-[94%] flex justify-start  z-10 mt-2 sm:mt-6 xl:mb-8"
           variants={fadeUp}
         >
           <Button onClick={scrollToContact}>
