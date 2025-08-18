@@ -26,6 +26,8 @@ const Contact = () => {
         boxSizing: "border-box",
       }}
     >
+      <div className="w-[80%]  mx-auto h-px bg-gray-600 opacity-40 xl:my-20 my-12" />
+
       <h1 className="mb-4 xl:text-5xl text-2xl font-bold tracking-wide text-center drop-shadow-sm max-w-3xl">
         {contactTextContent(lang).h1}
       </h1>
