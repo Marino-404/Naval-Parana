@@ -1,6 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 const customers = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
@@ -19,22 +19,39 @@ const itemVariants: Variants = {
 
 const Customers = () => {
   const controls = useAnimation();
+  const isMobileRef = useRef<boolean>(window.innerWidth < 640);
 
   useEffect(() => {
-    const isMobile = window.innerWidth < 640;
-
-    controls.start({
-      x: isMobile ? ["0%", "-160%"] : ["0%", "-80%"],
-      transition: {
-        x: {
-          repeat: Infinity,
-          repeatType: "loop",
-          duration: isMobile ? 8 : 20,
-          ease: "linear",
+    const startAnimation = (mobile: boolean) => {
+      controls.start({
+        x: mobile ? ["0%", "-160%"] : ["0%", "-80%"],
+        transition: {
+          x: {
+            repeat: Infinity,
+            repeatType: "loop",
+            duration: mobile ? 8 : 20,
+            ease: "linear",
+          },
         },
-      },
-    });
+      });
+    };
+
+    // Animación inicial
+    startAnimation(isMobileRef.current);
+
+    // Escucha cambios de tamaño
+    const handleResize = () => {
+      const nowMobile = window.innerWidth < 640;
+      if (nowMobile !== isMobileRef.current) {
+        isMobileRef.current = nowMobile;
+        startAnimation(nowMobile);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, [controls]);
+
   return (
     <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20 ">
       <div className="xl:w-[86%] w-[94%] overflow-hidden">
@@ -42,7 +59,7 @@ const Customers = () => {
           {customers.map((customer) => (
             <motion.div
               key={customer.id}
-              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs  px-3 sm:px-5 py-2 sm:py-3"
+              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
               variants={itemVariants}
             >
               <img
@@ -52,11 +69,11 @@ const Customers = () => {
               />
             </motion.div>
           ))}
-          {/* Repetimos los mismos items para loop */}
+          {/* Duplicados para loop */}
           {customers.map((customer) => (
             <motion.div
               key={`duplicate-${customer.id}`}
-              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-44 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs  px-3 sm:px-5 py-2 sm:py-3"
+              className="flex-shrink-0 flex items-center justify-center w-38 sm:w-44 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
               variants={itemVariants}
             >
               <img
