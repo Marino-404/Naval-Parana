@@ -38,7 +38,7 @@ const Customers = () => {
   return (
     <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20 ">
       <div className="xl:w-[86%] w-[94%] overflow-hidden">
-        <motion.div className="flex gap-4 sm:gap-6" animate={controls}>
+        <motion.div className="flex gap-2 sm:gap-6" animate={controls}>
           {customers.map((customer) => (
             <motion.div
               key={customer.id}
