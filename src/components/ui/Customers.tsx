@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { useAppState } from "../../store/app-state";
 
 const MENU_HEIGHT = 80;
 
