@@ -97,3 +97,13 @@ select:-webkit-autofill {
 *::-webkit-scrollbar-thumb:hover {
   background: #0660b8;
 }
+
+::selection {
+  background: var(--color-detail);
+  color: var(--color-secondary);
+}
+
+::-moz-selection {
+  background: var(--color-detail);
+  color: var(--color-secondary);
+}

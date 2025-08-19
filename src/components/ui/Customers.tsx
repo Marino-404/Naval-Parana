@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useAppState } from "../../store/app-state";
 
 const customers = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
@@ -17,7 +18,23 @@ const itemVariants: Variants = {
   },
 };
 
+// Componente LogoItem para claridad y performance
+const LogoItem = ({ src, alt }: { src: string; alt: string }) => (
+  <motion.div
+    className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
+    variants={itemVariants}
+  >
+    <img
+      src={src}
+      alt={`Logo ${alt}`}
+      className="max-h-full max-w-full object-contain"
+      loading="lazy"
+    />
+  </motion.div>
+);
+
 const Customers = () => {
+  const { lang } = useAppState();
   const controls = useAnimation();
   const containerRef = useRef<HTMLDivElement>(null);
   const [itemWidth, setItemWidth] = useState(0);
@@ -40,7 +57,7 @@ const Customers = () => {
     if (!itemWidth) return;
 
     const isMobile = window.innerWidth < 640;
-    const distance = itemWidth * customers.length; // cuánto mover antes de reiniciar
+    const distance = itemWidth * customers.length;
 
     controls.start({
       x: [0, -distance],
@@ -56,7 +73,10 @@ const Customers = () => {
   }, [controls, itemWidth]);
 
   return (
-    <section className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20">
+    <section
+      className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20"
+      aria-label={lang ? "Clientes" : "Customers"}
+    >
       <div className="xl:w-[86%] w-[94%] overflow-hidden">
         <motion.div
           ref={containerRef}
@@ -65,32 +85,16 @@ const Customers = () => {
         >
           {/* Items originales */}
           {customers.map((customer) => (
-            <motion.div
-              key={customer.id}
-              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
-              variants={itemVariants}
-            >
-              <img
-                src={customer.src}
-                alt={customer.alt}
-                className="max-h-full max-w-full object-contain"
-              />
-            </motion.div>
+            <LogoItem key={customer.id} src={customer.src} alt={customer.alt} />
           ))}
 
           {/* Duplicados para loop infinito */}
           {customers.map((customer) => (
-            <motion.div
+            <LogoItem
               key={`duplicate-${customer.id}`}
-              className="customer-item flex-shrink-0 flex items-center justify-center w-38 sm:w-64 h-20 sm:h-32 bg-gradient-to-br from-detail to-[#b6c8d9] rounded-xs px-3 sm:px-5 py-2 sm:py-3"
-              variants={itemVariants}
-            >
-              <img
-                src={customer.src}
-                alt={customer.alt}
-                className="max-h-full max-w-full object-contain"
-              />
-            </motion.div>
+              src={customer.src}
+              alt={customer.alt}
+            />
           ))}
         </motion.div>
       </div>

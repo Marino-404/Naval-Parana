@@ -30,7 +30,7 @@ const About = () => {
   const [scrollY, setScrollY] = useState(0);
 
   const scrollToContact = () => {
-    const el = document.getElementById("six");
+    const el = document.getElementById("contact");
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
