@@ -8,17 +8,12 @@ import {
 } from "./styles/styles";
 import { useAppState } from "../../store/app-state";
 import {
-  cardTextContentShip,
   cardTextContentShield,
-  cardTextContentDroplets,
-  cardTextContentSettings,
   cardTextContentHammer,
   cardTextContentPainting,
   cardTextContentTable,
 } from "../../utils/text-content";
 import {
-  Settings,
-  Droplets,
   ShieldCheck,
   Hammer,
   PaintRoller,
