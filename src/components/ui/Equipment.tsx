@@ -78,9 +78,9 @@ const ServicesSection = () => {
             {services.map((item, index) => (
               <li
                 key={index}
-                className="text-base xl:text-lg text-primary flex items-center gap-2 "
+                className="text-base xl:text-lg text-primary flex items-start gap-2"
               >
-                <CircleChevronRight className="text-secondary" />
+                <CircleChevronRight className="text-secondary w-5 h-5 self-start flex-shrink-0" />
                 {item}
               </li>
             ))}
