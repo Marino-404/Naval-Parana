@@ -3,6 +3,7 @@ export const headerTextContent = (lang = true) => {
     return {
       home: "Home",
       trabajos: "Servicios",
+      equipo: "Instalaciones",
       sobreNosotros: "Sobre nosotros",
       contacto: "Contacto",
     };
@@ -10,6 +11,7 @@ export const headerTextContent = (lang = true) => {
     return {
       home: "Home",
       trabajos: "Services",
+      equipo: "Facilities",
       sobreNosotros: "About Us",
       contacto: "Contact",
     };
@@ -102,6 +104,46 @@ export const cardTextContentSettings = (lang = true) => {
   }
 };
 
+export const cardTextContentHammer = (lang = true) => {
+  if (lang) {
+    return {
+      title: "Fabricación de estructuras",
+      description: "redes contra incendios, pasarelas y más.",
+    };
+  } else {
+    return {
+      title: "Manufacture of metal structures",
+      description: "fire nets, walkways, moorings buoys.",
+    };
+  }
+};
+export const cardTextContentPainting = (lang = true) => {
+  if (lang) {
+    return {
+      title: "Trabajos de arenado",
+      description: "y pintura.",
+    };
+  } else {
+    return {
+      title: "Sandblasting and painting",
+      description: "works.",
+    };
+  }
+};
+export const cardTextContentTable = (lang = true) => {
+  if (lang) {
+    return {
+      title: "Servicios técnicos especializados",
+      description: "Perforaciones y anclajes (HILTI).",
+    };
+  } else {
+    return {
+      title: "Specialized technical services",
+      description: "Perforations and anchors (HILTI).",
+    };
+  }
+};
+
 export const aboutNavalTextContent = (lang: boolean) => {
   if (lang) {
     return {
@@ -114,148 +156,6 @@ export const aboutNavalTextContent = (lang: boolean) => {
   }
 };
 
-export const worksContent1 = {
-  es: [
-    {
-      title:
-        "Soldadura de chapa Naval en casco y cubierta (Soldadores calificados)",
-    },
-    {
-      title: "Búsqueda y reposición de ancla y cadena con buzos especializados",
-    },
-    {
-      title: "Especializados en calderería",
-    },
-    {
-      title:
-        "Soldadura de grilletes en linea de fondeo (unión, estalingadura, giratorio)",
-    },
-    {
-      title:
-        "Mantenimiento/Reparación de equipos de izaje (grúas, malacates, pastecas)",
-    },
-    {
-      title:
-        "Mantenimiento/reparación de cabrestantes eléctricos e hidráulicos",
-    },
-    {
-      title:
-        "Fabricación y reparación de cañerías (carga, sentinas, lastre, red de incendio)",
-    },
-    {
-      title: "Rebobinado de motores eléctricos",
-    },
-    {
-      title: "Procedimientos de Soldaduras (WPS – PQR)",
-    },
-    {
-      title: "Proceso de Soldaduras (GTAW, SMAW y GMAW)",
-    },
-    {
-      title: "Torqueado hidráulico",
-    },
-    {
-      title: "Inspección: Ensayos no Destructivos",
-    },
-    {
-      title: "Empresa y personal habilitados por P.N.A.",
-    },
-  ],
-  en: [
-    {
-      title: "Naval Sheet Metal Welding on Hull and Deck (Qualified Welders)",
-    },
-    {
-      title:
-        "Finding and replenishing anchor and chain with specialized divers",
-    },
-    {
-      title: "Specialized in boilermaking",
-    },
-    {
-      title:
-        "Welding of shackles in anchoring line (jointing, stelling, swiveling)",
-    },
-    {
-      title:
-        "Maintenance/Repair of lifting equipment (cranes, winches, pastecas)",
-    },
-    {
-      title: "Maintenance/repair of electric and hydraulic winches",
-    },
-    {
-      title:
-        "Manufacture and repair of pipes (cargo, bilges, ballast, fire net)",
-    },
-    {
-      title: "Electric Motor Rewinding",
-    },
-    {
-      title: "Welding Procedures (WPS – PQR)",
-    },
-    {
-      title: "Welding Process (GTAW, SMAW and GMAW)",
-    },
-    {
-      title: "Hydraulic torqueing",
-    },
-    {
-      title: "Inspection: Non-Destructive Testing",
-    },
-    {
-      title: "Company and personnel authorized by P.N.A.",
-    },
-  ],
-};
-
-export const worksContent2 = {
-  es: [
-    { title: "Bitas" },
-    { title: "Dolphin" },
-    { title: "Cintas de embarques" },
-    { title: "Pescantes" },
-    { title: "Escala de acceso a buque" },
-    { title: "Defensas" },
-    { title: "Red de incendio" },
-    { title: "Inspección y certificación de equipos de izaje" },
-    { title: "Sistemas de anclajes" },
-  ],
-  en: [
-    { title: "Bollards" },
-    { title: "Dolphin" },
-    { title: "Shipping Belts" },
-    { title: "Davits" },
-    { title: "Ship Access Ladder" },
-    { title: "Defenses" },
-    { title: "Fire Network" },
-    { title: "Inspection and certification of lifting equipment" },
-    { title: "Anchor systems" },
-  ],
-};
-
-export const worksContent3 = {
-  es: [
-    { title: "Ingeniería" },
-    { title: "Montajes Industriales (mantenimiento general de calderas)" },
-    { title: "Fabricación, Montajes y mantenimiento de Cañerías en general" },
-    { title: "Fabricación y Montajes de Estructuras Pesadas y Livianas" },
-    { title: "Inspección: Ensayos no Destructivos" },
-    { title: "Procedimientos de Soldaduras (WPS – PQR)" },
-    { title: "Proceso de Soldaduras (GTAW, SMAW Y GMAW)" },
-    { title: "Torqueado hidráulico" },
-  ],
-  en: [
-    { title: "Engineering" },
-    { title: "Industrial Assemblies (general boiler maintenance)" },
-    { title: "Manufacture, Assembly and maintenance of pipes in general" },
-    { title: "Manufacture and Assembly of Heavy and Light Structures" },
-    { title: "Inspection: Non-Destructive Testing" },
-    { title: "Welding Procedures (WPS – PQR)" },
-    { title: "Welding Process (GTAW, SMAW and GMAW)" },
-    { title: "Hydraulic torqueing" },
-  ],
-};
-
 export const contactTextContent = (lang: boolean) => {
   if (lang) {
     return {
@@ -264,7 +164,7 @@ export const contactTextContent = (lang: boolean) => {
     };
   } else {
     return {
-      h1: "Immediate Availability",
+      h1: "Immediate Availability.",
       subtitle: "Get in touch for a quick and personalized response.",
     };
   }

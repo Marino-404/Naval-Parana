@@ -12,7 +12,7 @@ const Header = () => {
     useAppState();
   const isScrolled = useScrollPosition(30);
 
-  useSectionObserver(["home", "about", "services", "contact"]);
+  useSectionObserver(["home", "about", "services", "equipment", "contact"]);
 
   const {
     showMenu,
@@ -26,6 +26,7 @@ const Header = () => {
     { id: "home", label: headerTextContent(lang).home },
     { id: "about", label: headerTextContent(lang).sobreNosotros },
     { id: "services", label: headerTextContent(lang).trabajos },
+    { id: "equipment", label: headerTextContent(lang).equipo },
     { id: "contact", label: headerTextContent(lang).contacto },
   ];
 
@@ -42,7 +43,7 @@ const Header = () => {
   const headerClasses = [
     "xl:w-[90%] w-full z-30 transition-all duration-500 ease-in-out fixed xl:top-2 left-1/2 -translate-x-1/2 xl:rounded-full text-detail font-normal",
     (isScrolled || showMenu) && "xl:w-[50%] bg-black/45 backdrop-blur-md",
-    "xl:h-13 h-18",
+    "xl:h-18 h-18",
   ]
     .filter(Boolean)
     .join(" ");
@@ -56,7 +57,7 @@ const Header = () => {
             src={Logo}
             alt="Logo"
             onClick={scrollToTop}
-            className="h-10 xl:h-8 cursor-pointer"
+            className="h-10 xl:h-12 cursor-pointer"
           />
         </div>
 

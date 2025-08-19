@@ -8,7 +8,7 @@ const AboutNaval = () => {
   const { lang } = useAppState();
 
   return (
-    <section id="about" className="w-full py-28 bg-primary ">
+    <section id="about" className="w-full xl:py-24 py-28 bg-primary ">
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden">
         {/* Imagen */}
         <motion.div

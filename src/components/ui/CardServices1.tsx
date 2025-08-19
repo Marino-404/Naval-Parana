@@ -9,11 +9,21 @@ import {
 import { useAppState } from "../../store/app-state";
 import {
   cardTextContentShip,
-  cardTextContentAnchor,
+  cardTextContentShield,
   cardTextContentDroplets,
   cardTextContentSettings,
+  cardTextContentHammer,
+  cardTextContentPainting,
+  cardTextContentTable,
 } from "../../utils/text-content";
-import { Settings, Droplets, Anchor, Ship } from "lucide-react";
+import {
+  Settings,
+  Droplets,
+  ShieldCheck,
+  Hammer,
+  PaintRoller,
+  TableOfContents,
+} from "lucide-react";
 
 const containerVariants = {
   hidden: {},
@@ -49,12 +59,12 @@ const Services = () => {
     >
       <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
-          <Anchor className={iconStyles} />
+          <ShieldCheck className={iconStyles} />
           <div className={titleCardStyle}>
-            {cardTextContentAnchor(lang).title}
+            {cardTextContentShield(lang).title}
           </div>
           <div className={descriptionCardStyle}>
-            {cardTextContentAnchor(lang).description}
+            {cardTextContentShield(lang).description}
           </div>
         </div>
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
@@ -62,12 +72,12 @@ const Services = () => {
 
       <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
-          <Ship className={iconStyles} />
+          <Hammer className={iconStyles} />
           <div className={titleCardStyle}>
-            {cardTextContentShip(lang).title}
+            {cardTextContentHammer(lang).title}
           </div>
           <div className={descriptionCardStyle}>
-            {cardTextContentShip(lang).description}
+            {cardTextContentHammer(lang).description}
           </div>
         </div>
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
@@ -75,27 +85,25 @@ const Services = () => {
 
       <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
-          <Droplets className={iconStyles} />
+          <PaintRoller className={iconStyles} />
           <div className={titleCardStyle}>
-            {cardTextContentDroplets(lang).title}
+            {cardTextContentPainting(lang).title}
           </div>
           <div className={descriptionCardStyle}>
-            {cardTextContentDroplets(lang).description}
+            {cardTextContentPainting(lang).description}
           </div>
         </div>
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
       </motion.div>
 
-      {/*  */}
-
       <motion.div className={cardStyles} variants={cardVariants}>
         <div className="flex flex-col">
-          <Settings className={iconStyles} />
+          <TableOfContents className={iconStyles} />
           <div className={titleCardStyle}>
-            {cardTextContentSettings(lang).title}
+            {cardTextContentTable(lang).title}
           </div>
           <div className={descriptionCardStyle}>
-            {cardTextContentSettings(lang).description}
+            {cardTextContentTable(lang).description}
           </div>
         </div>
         <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>

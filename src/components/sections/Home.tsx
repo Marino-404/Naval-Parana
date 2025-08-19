@@ -5,7 +5,6 @@ import { Typewriter } from "react-simple-typewriter";
 import Button from "../ui/Button";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import ServicesSection from "../ui/Services";
 
 const containerVariants = {
   hidden: {},
@@ -49,7 +48,7 @@ const About = () => {
     <>
       <section
         id="home"
-        className="relative xl:h-[100vh] h-auto w-full flex flex-col items-center justify-center text-white gap-6   overflow-hidden bg-primary "
+        className="relative xl:h-[100vh] h-[90vh] w-full flex flex-col items-center justify-center text-white gap-6   overflow-hidden bg-primary "
         // agregamos bg-primary al contenedor para que el fondo que se ve sea ese color
       >
         <img
@@ -79,11 +78,11 @@ const About = () => {
           </motion.h1>
 
           <motion.div
-            className="text-base sm:text-lg xl:text-xl flex flex-col sm:flex-row items-start gap-1 sm:gap-2 text-detail "
+            className="text-base sm:text-lg xl:text-2xl flex flex-col sm:flex-row items-start gap-1 sm:gap-2 text-detail "
             variants={fadeUp}
           >
             {/* Texto estático */}
-            <h2 className="custom-font-montserrat font-light mr-1 opacity-80">
+            <h2 className="custom-font-montserrat font-light mr-1 opacity-70">
               {aboutTextContent(lang).subtitle}
             </h2>
 
@@ -126,7 +125,6 @@ const About = () => {
             {lang ? "Disponibilidad inmediata" : "Immediate Availability"}
           </Button>
         </motion.div>
-        <ServicesSection />
       </section>
     </>
   );

@@ -5,7 +5,7 @@ export const cardStyles =
   "xl:w-1/4 w-full md:h-40 bg-gradient-to-br from-detail to-[#b6c8d9] p-5 rounded-xs  px-5 transition-all duration-300 border-solid border-secondary shadow-lg hover:shadow-xl ";
 
 export const iconStyles =
-  "w-8 h-8 mb-2 text-secondary transition-colors duration-300 flex";
+  "w-8 h-8 mb-2 text-secondary transition-colors duration-300 flex ";
 
 export const circleIconStyle = "p-3 bg-secondary/20 rounded-sm";
 
