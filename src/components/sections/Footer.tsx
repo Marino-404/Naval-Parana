@@ -1,7 +1,10 @@
 import { MapPinned, Phone, Mail } from "lucide-react";
 import { textFooterStyle, iconsFooterStyle } from "../ui/styles/styles";
+import { useAppState } from "../../store/app-state";
 
 const Footer = () => {
+  const { lang } = useAppState();
+
   return (
     <footer className="bg-primary text-detail w-full pb-20 ">
       <div className="xl:w-[86%] w-[94%]  mx-auto h-px bg-gray-600 opacity-40 xl:mb-20 mb-12" />
@@ -47,8 +50,8 @@ const Footer = () => {
               className="object-contain"
             />
           </div>
-          <p className="text-sm mt-6 ">
-            Diseñado y desarrollado por{" "}
+          <p className="text-sm mt-4">
+            {lang ? "Diseñado y desarrollado por" : "Designed and developed by"}{" "}
             <a
               href="https://portfoliojuanmarino.vercel.app/"
               target="_blank"
@@ -57,6 +60,11 @@ const Footer = () => {
             >
               Juan Marino
             </a>
+          </p>
+          <p className="text-sm mt-4">
+            {lang
+              ? "© 2025 - Todos los derechos reservados."
+              : "© 2025 - All rights reserved."}
           </p>
         </div>
       </div>
