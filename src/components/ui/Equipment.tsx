@@ -1,6 +1,6 @@
 import { useAppState } from "../../store/app-state";
 import { motion } from "framer-motion";
-import aboutnaval from "../../../public/img/naval.png";
+import aboutnaval from "../../../public/img/naval.jpg";
 import { CircleChevronRight, Truck } from "lucide-react";
 
 const ServicesSection = () => {
