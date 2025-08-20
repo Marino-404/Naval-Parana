@@ -64,7 +64,7 @@ const About = () => {
         />
 
         <motion.div
-          className="relative xl:w-[86%] w-[94%]  z-10  justify-start text-start pt-40 xl:pt-16"
+          className="relative xl:w-[86%] w-[94%]  z-10  justify-start text-start pt-28 xl:pt-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
