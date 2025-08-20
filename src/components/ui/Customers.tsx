@@ -2,6 +2,7 @@ import { motion, useAnimation } from "framer-motion";
 import type { Variants } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { useAppState } from "../../store/app-state";
+import { ChevronRight } from "lucide-react";
 
 const customers = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
@@ -77,7 +78,11 @@ const Customers = () => {
       className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20"
       aria-label={lang ? "Clientes" : "Customers"}
     >
-      <div className="xl:w-[86%] w-[94%] overflow-hidden">
+      <div className="xl:w-[86%] w-[94%] overflow-hidden flex flex-col gap-6">
+        <div className="xl:text-6xl text-3xl font-bold tracking-wide text-start  drop-shadow-sm  text-detail flex flex-row items-center justify-start">
+          <ChevronRight className="w-8 h-8 text-secondary transition-colors duration-300 flex " />
+          <h1>{lang ? "Clientes" : "Customers"}</h1>
+        </div>
         <motion.div
           ref={containerRef}
           className="flex gap-4 sm:gap-6"
