@@ -143,7 +143,7 @@ const Header = () => {
             ))}
           </ul>
           <div className="absolute bottom-[50px] pl-12 left-0 text-xl font-normal text-detail">
-            Naval Paraná
+            Naval Paraná SRL.
           </div>
         </nav>
       )}

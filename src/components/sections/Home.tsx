@@ -70,6 +70,12 @@ const About = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
+          <motion.h2
+            className="text-base sm:text-lg  xl:text-2xl font-bold  text-detail mb-4 tracking-wide uppercase"
+            variants={fadeUp}
+          >
+            Naval Paraná SRL.
+          </motion.h2>
           <motion.h1
             className="text-4xl  xl:text-8xl font-bold text-detail mb-4 tracking-wide uppercase"
             variants={fadeUp}

@@ -147,11 +147,11 @@ export const cardTextContentTable = (lang = true) => {
 export const aboutNavalTextContent = (lang: boolean) => {
   if (lang) {
     return {
-      h1: "En Naval Paraná, convertimos desafíos fluviales en resultados sólidos. Con años de experiencia y habilitación por Prefectura Naval Argentina, ofrecemos soluciones confiables, precisión técnica y compromiso real en cada operación.",
+      h1: "En Naval Paraná SRL, convertimos desafíos fluviales en resultados sólidos. Con años de experiencia y habilitación por Prefectura Naval Argentina, ofrecemos soluciones confiables, precisión técnica y compromiso real en cada operación.",
     };
   } else {
     return {
-      h1: "At Naval Paraná, we turn river challenges into solid results. With years of experience and qualification by the Argentine Naval Prefecture, we offer reliable solutions, technical precision and real commitment in each operation.",
+      h1: "At Naval Paraná SRL, we turn river challenges into solid results. With years of experience and qualification by the Argentine Naval Prefecture, we offer reliable solutions, technical precision and real commitment in each operation.",
     };
   }
 };
