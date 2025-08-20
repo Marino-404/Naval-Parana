@@ -17,7 +17,11 @@ const Footer = () => {
 
             <div className="flex flex-row gap-2">
               <Phone className={iconsFooterStyle} />
-              <p className={textFooterStyle}>(0341) 6030702</p>
+              <p className={textFooterStyle}>(0341) 6030702 - Denis Germán.</p>
+            </div>
+            <div className="flex flex-row gap-2">
+              <Phone className={iconsFooterStyle} />
+              <p className={textFooterStyle}>(0341) 6950630 - Rossi Ricardo.</p>
             </div>
             <div className="flex flex-row gap-2">
               <Mail className={iconsFooterStyle} />
@@ -43,7 +47,7 @@ const Footer = () => {
               className="object-contain"
             />
           </div>
-          <p className="text-sm mt-6">
+          <p className="text-sm mt-6 ">
             Diseñado y desarrollado por{" "}
             <a
               href="https://portfoliojuanmarino.vercel.app/"

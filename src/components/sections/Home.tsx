@@ -88,7 +88,7 @@ const About = () => {
             variants={fadeUp}
           >
             {/* Texto estático */}
-            <h2 className="custom-font-montserrat font-light mr-1 opacity-70">
+            <h2 className="custom-font-montserrat font-light mr-1 opacity-90">
               {aboutTextContent(lang).subtitle}
             </h2>
 
