@@ -30,7 +30,7 @@ const ServicesSection = () => {
       id="equipment"
       className="w-full min-h-screen bg-primary py-24 flex items-center"
     >
-      <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-2xl overflow-hidden shadow-lg">
+      <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
         {/* Imagen */}
         <motion.div
           className="xl:w-1/2 w-full "
