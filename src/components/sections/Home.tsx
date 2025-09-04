@@ -1,6 +1,6 @@
 import { useAppState } from "../../store/app-state";
 import { aboutTextContent } from "../../utils/text-content";
-import AboutImage from "../../../public/img/about2.png";
+import AboutImage from "../../../public/img/naval4.jpg";
 import { Typewriter } from "react-simple-typewriter";
 import Button from "../ui/Button";
 import { motion } from "framer-motion";
@@ -42,7 +42,7 @@ const About = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const overlayOpacity = Math.min(0.85 + scrollY / 800, 1); // capa base más oscura y más opaca con scroll
+  const overlayOpacity = Math.min(0.8 + scrollY / 800, 1); // capa base más oscura y más opaca con scroll
 
   return (
     <>

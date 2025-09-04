@@ -1,5 +1,5 @@
 import { aboutNavalTextContent } from "../../utils/text-content";
-import aboutnaval from "../../../public/img/aboutnaval.jpg";
+import aboutnaval from "../../../public/img/naval1.jpg";
 import { useAppState } from "../../store/app-state";
 import { HardHat } from "lucide-react";
 import { motion } from "framer-motion";
@@ -12,17 +12,19 @@ const AboutNaval = () => {
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden">
         {/* Imagen */}
         <motion.div
-          className="xl:w-1/2 w-full h-96 xl:h-150"
+          className="xl:w-1/2 w-full h-96 xl:h-150 overflow-hidden group"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
+          <div className="absolute inset-0 bg-primary/40 pointer-events-none"></div>
           <img
             src={aboutnaval}
             alt="Sobre Naval Paraná"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transform transition-transform duration-500 ease-out group-hover:scale-105"
           />
+          {/* Overlay azul */}
         </motion.div>
 
         {/* Texto */}

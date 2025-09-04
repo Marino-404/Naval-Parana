@@ -1,10 +1,31 @@
 import { useAppState } from "../../store/app-state";
 import { motion } from "framer-motion";
-import aboutnaval from "../../../public/img/naval.jpg";
-import { CircleChevronRight, Truck } from "lucide-react";
+import {
+  CircleChevronRight,
+  Truck,
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
+import { useState } from "react";
+
+const galleryImages = [
+  "/img/barco.jpg",
+  "/img/naval2.jpg",
+  "/img/naval3.jpg",
+  "/img/naval5.jpg",
+];
 
 const ServicesSection = () => {
   const { lang } = useAppState();
+  const [current, setCurrent] = useState(0);
+
+  const prevImage = () => {
+    setCurrent((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
+  };
+
+  const nextImage = () => {
+    setCurrent((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
+  };
 
   // Lista de servicios (en español/inglés)
   const services = lang
@@ -28,22 +49,42 @@ const ServicesSection = () => {
   return (
     <section
       id="equipment"
-      className="w-full min-h-screen bg-primary py-24 flex items-center"
+      className="w-full min-h-screen bg-primary pt-24 pb-12 flex items-center"
     >
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
-        {/* Imagen */}
+        {/* Galería de imágenes */}
+
         <motion.div
-          className="xl:w-1/2 w-full "
+          className="xl:w-1/2 w-full relative overflow-hidden h-64 md:h-[650px]"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
           <img
-            src={aboutnaval}
-            alt={lang ? "Sobre Naval Paraná" : "About Naval Paraná"}
-            className="w-full h-full object-cover"
+            src={galleryImages[current]}
+            alt={`Imagen ${current + 1}`}
+            className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-105"
           />
+
+          {/* Overlay azul */}
+          <div className="absolute inset-0 bg-primary/40 pointer-events-none"></div>
+
+          {/* Botón izquierda */}
+          <button
+            onClick={prevImage}
+            className="absolute top-1/2 left-1 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+
+          {/* Botón derecha */}
+          <button
+            onClick={nextImage}
+            className="absolute top-1/2 right-1 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </motion.div>
 
         {/* Texto */}

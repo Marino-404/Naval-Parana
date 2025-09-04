@@ -75,9 +75,10 @@ const Customers = () => {
 
   return (
     <section
-      className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary pt-20"
+      className="relative w-full mx-auto flex flex-col items-center text-detail bg-primary "
       aria-label={lang ? "Clientes" : "Customers"}
     >
+      <div className="xl:w-[86%] w-[94%]  mx-auto h-px bg-gray-600 opacity-40 xl:my-20 my-12" />
       <div className="xl:w-[86%] w-[94%] overflow-hidden flex flex-col gap-6">
         <div className="xl:text-6xl text-3xl font-bold tracking-wide text-start  drop-shadow-sm  text-detail flex flex-row items-center justify-start">
           <ChevronRight className="w-8 h-8 text-secondary transition-colors duration-300 flex " />
