@@ -33,35 +33,34 @@ const Contact = () => {
       </div>
 
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col sm:flex-row gap-4 sm:gap-8 justify-start  mb-12">
-        <Button
+        <button
           onClick={() => window.open(telLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
-             text-detail "
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
           aria-label={lang ? "Llamar" : "Call"}
         >
           <Phone size={20} />
           {lang ? "Llamar" : "Call"}
-        </Button>
+        </button>
 
-        <Button
+        <button
           onClick={() => window.open(whatsappLink, "_blank")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
-             text-detail "
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
           aria-label={lang ? "WhatsApp" : "WhatsApp"}
         >
           <MessageCircle size={20} />
           {lang ? "WhatsApp" : "WhatsApp"}
-        </Button>
-
-        <Button
+        </button>
+        <button
           onClick={() => window.open(mailtoLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-xs shadow-md
-             text-detail "
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
           aria-label={lang ? "Enviar correo" : "Send Email"}
         >
           <Mail size={20} />
           {lang ? "Enviar correo" : "Send Email"}
-        </Button>
+        </button>
       </div>
       <Location />
     </section>

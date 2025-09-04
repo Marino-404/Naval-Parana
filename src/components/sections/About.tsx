@@ -18,7 +18,6 @@ const AboutNaval = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           viewport={{ once: true }}
         >
-          <div className="absolute inset-0 bg-primary/40 pointer-events-none"></div>
           <img
             src={aboutnaval}
             alt="Sobre Naval Paraná"
