@@ -1,4 +1,3 @@
-import Button from "../ui/Button";
 import { useAppState } from "../../store/app-state";
 import { contactTextContent } from "../../utils/text-content";
 import { Phone, Mail, MessageCircle } from "lucide-react";
