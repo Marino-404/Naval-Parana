@@ -18,6 +18,10 @@ const galleryImages = [
   "/img/naval7.jpg",
   "/img/naval8.jpg",
   "/img/naval9.jpg",
+  "/img/naval10.jpg",
+  "/img/naval11.jpg",
+  "/img/naval12.jpg",
+  "/img/naval13.jpg",
 ];
 
 const ServicesSection = () => {
