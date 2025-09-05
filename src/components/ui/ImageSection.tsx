@@ -29,12 +29,12 @@ const ServicesSection = () => {
   return (
     <section className="w-full bg-primary flex justify-center items-center xl:py-12">
       <div
-        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden shadow-lg relative flex flex-col xl:flex-row items-center"
+        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden  relative flex flex-col xl:flex-row items-center"
         ref={ref}
       >
         {/* Stats */}
         <motion.div
-          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-6 relative xl:absolute xl:inset-0"
+          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-12 xl:gap-0 relative xl:absolute xl:inset-0"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
