@@ -1,5 +1,5 @@
 import { useAppState } from "../../store/app-state";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   CircleChevronRight,
   Truck,
@@ -27,16 +27,18 @@ const galleryImages = [
 const ServicesSection = () => {
   const { lang } = useAppState();
   const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0); // 1 = next, -1 = prev
 
   const prevImage = () => {
+    setDirection(-1);
     setCurrent((prev) => (prev === 0 ? galleryImages.length - 1 : prev - 1));
   };
 
   const nextImage = () => {
+    setDirection(1);
     setCurrent((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   };
 
-  // Lista de servicios (en español/inglés)
   const services = lang
     ? [
         "Departamento de ingeniería propia",
@@ -62,19 +64,20 @@ const ServicesSection = () => {
     >
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
         {/* Galería de imágenes */}
-
-        <motion.div
-          className="xl:w-1/2 w-full relative overflow-hidden h-64 md:h-[650px]"
-          initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: true }}
-        >
-          <img
-            src={galleryImages[current]}
-            alt={`Imagen ${current + 1}`}
-            className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-105"
-          />
+        <motion.div className="xl:w-1/2 w-full relative overflow-hidden h-64 md:h-[650px]">
+          <AnimatePresence initial={false} custom={direction}>
+            <motion.img
+              key={current}
+              src={galleryImages[current]}
+              alt={`Imagen ${current + 1}`}
+              custom={direction}
+              initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
+              transition={{ duration: 0.6, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-105"
+            />
+          </AnimatePresence>
 
           {/* Overlay azul */}
           <div className="absolute inset-0 bg-primary/40 pointer-events-none"></div>
@@ -98,7 +101,7 @@ const ServicesSection = () => {
 
         {/* Texto */}
         <motion.div
-          className="xl:w-1/2 w-full bg-gradient-to-br from-detail to-[#b6c8d9]  pl-8 p-10 xl:pl-10 xl:p-24 flex flex-col justify-center text-primary"
+          className="xl:w-1/2 w-full bg-gradient-to-br from-detail to-[#b6c8d9] pl-8 p-10 xl:pl-10 xl:p-24 flex flex-col justify-center text-primary"
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
