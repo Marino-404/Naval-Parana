@@ -77,7 +77,7 @@ const About = () => {
             Naval Paraná SRL.
           </motion.h2>
           <motion.h1
-            className="text-4xl  xl:text-8xl font-bold text-detail mb-4 tracking-wide uppercase"
+            className="text-4xl  xl:text-8xl font-bold text-detail mb-4 tracking-wide uppercase custom-font-montserrat"
             variants={fadeUp}
           >
             {aboutTextContent(lang).title}
@@ -97,27 +97,15 @@ const About = () => {
               <Typewriter
                 words={
                   lang
-                    ? [
-                        "ingeniería.",
-                        "seguridad.",
-                        "innovación.",
-                        "eficiencia.",
-                        "sostenibilidad.",
-                      ]
-                    : [
-                        "engineering.",
-                        "safety.",
-                        "innovation.",
-                        "efficiency.",
-                        "sustainability.",
-                      ]
+                    ? ["ingeniería.", "seguridad.", "eficiencia."]
+                    : ["engineering.", "safety.", "efficiency."]
                 }
                 loop={true}
                 cursor
                 cursorStyle="|"
                 typeSpeed={40}
                 deleteSpeed={20}
-                delaySpeed={3000}
+                delaySpeed={1000}
               />
             </span>
           </motion.div>

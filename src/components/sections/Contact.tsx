@@ -35,29 +35,29 @@ const Contact = () => {
         <button
           onClick={() => window.open(telLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
-             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35  border-t-2 border-b-2 border-secondary"
           aria-label={lang ? "Llamar" : "Call"}
         >
-          <Phone size={20} />
+          <Phone size={20} className="text-secondary" />
           {lang ? "Llamar" : "Call"}
         </button>
 
         <button
           onClick={() => window.open(whatsappLink, "_blank")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-sm shadow-md
-             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35  border-t-2 border-b-2 border-secondary"
           aria-label={lang ? "WhatsApp" : "WhatsApp"}
         >
-          <MessageCircle size={20} />
+          <MessageCircle size={20} className="text-secondary" />
           {lang ? "WhatsApp" : "WhatsApp"}
         </button>
         <button
           onClick={() => window.open(mailtoLink, "_self")}
           className="flex-1 flex justify-center items-center gap-3 py-4 text-md font-semibold rounded-xs shadow-md
-             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35"
+             text-detail bg-black/45 backdrop-blur-md cursor-pointer hover:bg-black/35  border-t-2 border-b-2 border-secondary "
           aria-label={lang ? "Enviar correo" : "Send Email"}
         >
-          <Mail size={20} />
+          <Mail size={20} className="text-secondary" />
           {lang ? "Enviar correo" : "Send Email"}
         </button>
       </div>

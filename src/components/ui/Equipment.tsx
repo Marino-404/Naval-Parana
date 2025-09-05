@@ -76,11 +76,28 @@ const ServicesSection = () => {
               src={galleryImages[current]}
               alt={`Imagen ${current + 1}`}
               custom={direction}
-              initial={{ opacity: 0, x: direction > 0 ? 50 : -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: direction > 0 ? -50 : 50 }}
-              transition={{ duration: 0.6, ease: "easeInOut" }}
-              className="absolute inset-0 w-full h-full object-cover object-center transform transition-transform duration-500 ease-out group-hover:scale-105"
+              initial={{
+                opacity: 0,
+                x: direction > 0 ? 300 : -300,
+                scale: 0.95,
+              }}
+              animate={{
+                opacity: 1,
+                x: 0,
+                scale: 1,
+              }}
+              exit={{
+                opacity: 0,
+                x: direction > 0 ? -300 : 300,
+                scale: 0.95,
+              }}
+              transition={{
+                duration: 0.8,
+                type: "spring",
+                stiffness: 120,
+                damping: 20,
+              }}
+              className="absolute inset-0 w-full h-full object-cover object-center"
             />
           </AnimatePresence>
 
@@ -90,7 +107,7 @@ const ServicesSection = () => {
           {/* Botón izquierda */}
           <button
             onClick={prevImage}
-            className="absolute top-1/2 left-1 -translate-y-1/2 bg-black/40 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+            className="absolute top-1/2 left-1 -translate-y-1/2 bg-black/45 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -98,7 +115,7 @@ const ServicesSection = () => {
           {/* Botón derecha */}
           <button
             onClick={nextImage}
-            className="absolute top-1/2 right-1 -translate-y-1/2 bg-black/40 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+            className="absolute top-1/2 right-1 -translate-y-1/2 bg-black/45 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer "
           >
             <ChevronRight className="w-6 h-6" />
           </button>
