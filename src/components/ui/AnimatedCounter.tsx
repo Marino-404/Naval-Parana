@@ -23,9 +23,9 @@ const AnimatedCounter = ({
     if (!trigger) return;
 
     let start = from;
-    setCount(from); // 🔄 resetear cada vez
+    setCount(from); //  resetear cada vez
     const end = to;
-    const increment = (end - start) / (duration * 60);
+    const increment = (end - start) / (duration * 34);
 
     const handle = setInterval(() => {
       start += increment;

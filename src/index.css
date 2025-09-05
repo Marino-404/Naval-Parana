@@ -114,3 +114,31 @@ select:-webkit-autofill {
   background: var(--color-detail);
   color: var(--color-secondary);
 }
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+  gap: 16px;
+}
+
+.marquee-item {
+  flex-shrink: 0;
+  width: 160px;
+  height: 80px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
