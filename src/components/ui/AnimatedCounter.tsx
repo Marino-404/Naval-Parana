@@ -42,9 +42,13 @@ const AnimatedCounter = ({
 
   return (
     <span>
-      {prefix}
-      {count}
-      {suffix}
+      {prefix && (
+        <span className="text-7xl md:text-6xl align-center">{prefix}</span>
+      )}
+      <span>{count}</span>
+      {suffix && (
+        <span className="text-7xl md:text-6xl align-center">{suffix}</span>
+      )}
     </span>
   );
 };

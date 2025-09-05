@@ -19,23 +19,23 @@ const Stats = () => {
   const stats: Stat[] = [
     { label: lang ? "Servicios" : "Services", value: 25, prefix: "+" },
     { label: lang ? "Atención" : "Support", value: 24, suffix: "hs" },
-    { label: lang ? "Proyectos" : "Projects", value: 180, prefix: "+" },
+    { label: lang ? "Trabajos" : "Work", value: 200, prefix: "+" },
   ];
 
   return (
     <section className="w-full bg-primary flex justify-center items-center py-12">
-      <div className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0">
+      <div className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0  border-t-2 border-b-2 border-secondary">
         {/* Stats */}
         <div
-          ref={ref} // 👈 el hook observa este bloque, no el wrapper
-          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-12 xl:gap-0 relative xl:absolute xl:inset-0"
+          ref={ref}
+          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-20 xl:gap-0 relative xl:absolute xl:inset-0"
         >
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
-              <span className="text-lg md:text-3xl text-secondary font-semibold uppercase">
+              <h3 className="text-lg md:text-3xl text-secondary font-semibold uppercase">
                 {stat.label}
-              </span>
-              <span className="text-7xl md:text-9xl">
+              </h3>
+              <h2 className="text-7xl md:text-9xl">
                 <AnimatedCounter
                   from={0}
                   to={stat.value}
@@ -43,7 +43,7 @@ const Stats = () => {
                   suffix={stat.suffix}
                   trigger={inCenter}
                 />
-              </span>
+              </h2>
             </div>
           ))}
         </div>
