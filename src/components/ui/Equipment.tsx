@@ -58,7 +58,7 @@ const ServicesSection = () => {
   return (
     <section
       id="equipment"
-      className="w-full min-h-screen bg-primary pt-24 pb-12 flex items-center"
+      className="w-full min-h-screen bg-primary pb-24 pt-12 flex items-center"
     >
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
         {/* Galería de imágenes */}

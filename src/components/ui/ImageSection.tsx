@@ -27,24 +27,24 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="w-full bg-primary flex items-center">
+    <section className="w-full bg-primary flex justify-center items-center xl:py-12">
       <div
-        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden shadow-lg relative"
+        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden shadow-lg relative flex flex-col xl:flex-row items-center"
         ref={ref}
       >
-        {/* Overlay azul */}
+        {/* Stats */}
         <motion.div
-          className="absolute inset-0 flex justify-around items-center z-20 text-detail/85 text-center p-6"
+          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-6 relative xl:absolute xl:inset-0"
           initial={{ opacity: 0, y: -20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col ">
-              <span className="text-xs md:text-3xl text-secondary font-semibold uppercase">
+            <div key={i} className="flex flex-col items-center">
+              <span className="text-lg md:text-3xl text-secondary font-semibold uppercase">
                 {stat.label}
               </span>
-              <span className="text-4xl md:text-8xl font-bold">
+              <span className="text-7xl md:text-9xl font-bold">
                 <AnimatedCounter
                   from={0}
                   to={stat.value}
@@ -56,11 +56,10 @@ const ServicesSection = () => {
             </div>
           ))}
         </motion.div>
-        <div className="w-full h-[2px] bg-secondary/60 rounded-full mt-6"></div>
 
         {/* Imagen */}
         <motion.div
-          className="w-full xl:h-150 relative overflow-hidden group"
+          className="w-full xl:h-150 relative overflow-hidden group hidden xl:block"
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
