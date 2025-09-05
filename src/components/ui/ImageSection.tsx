@@ -27,7 +27,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="w-full bg-primary flex justify-center items-center xl:py-12">
+    <section className="w-full bg-primary flex justify-center items-center py-12">
       <div
         className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden  relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none"
         ref={ref}

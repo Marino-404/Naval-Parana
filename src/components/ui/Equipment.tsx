@@ -58,7 +58,7 @@ const ServicesSection = () => {
   return (
     <section
       id="equipment"
-      className="w-full min-h-screen bg-primary  flex items-center"
+      className="w-full min-h-screen bg-primary py-12 flex items-center"
     >
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
         {/* Galería de imágenes */}
