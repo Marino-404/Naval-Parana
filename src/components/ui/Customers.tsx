@@ -1,7 +1,7 @@
 import { useAppState } from "../../store/app-state";
 import { ChevronRight } from "lucide-react";
 
-const customers = Array.from({ length: 18 }, (_, i) => ({
+const customers = Array.from({ length: 17 }, (_, i) => ({
   id: i + 1,
   src: `/img/customers/customers${i + 1}.png`,
   alt: `Customer ${i + 1}`,
