@@ -29,7 +29,7 @@ const ServicesSection = () => {
   return (
     <section className="w-full bg-primary flex justify-center items-center py-12">
       <div
-        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden  relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none"
+        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden  relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0"
         ref={ref}
       >
         {/* Stats */}
