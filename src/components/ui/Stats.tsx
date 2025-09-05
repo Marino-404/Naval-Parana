@@ -18,7 +18,7 @@ const Stats = () => {
 
   const stats: Stat[] = [
     { label: lang ? "Servicios" : "Services", value: 25, prefix: "+" },
-    { label: lang ? "Atención" : "Support", value: 24, suffix: "/7" },
+    { label: lang ? "Atención" : "Support", value: 24, suffix: "hs" },
     { label: lang ? "Proyectos" : "Projects", value: 180, prefix: "+" },
   ];
 
