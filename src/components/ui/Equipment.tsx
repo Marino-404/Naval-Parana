@@ -109,7 +109,7 @@ const ServicesSection = () => {
               <span
                 key={index}
                 onClick={() => goToImage(index)}
-                className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+                className={`xl:w-3 xl:h-3 w-2 h-2 rounded-full cursor-pointer transition-all ${
                   current === index ? "bg-secondary scale-125" : "bg-black/40"
                 }`}
               ></span>
