@@ -39,6 +39,11 @@ const ServicesSection = () => {
     setCurrent((prev) => (prev === galleryImages.length - 1 ? 0 : prev + 1));
   };
 
+  const goToImage = (index: number) => {
+    setDirection(index > current ? 1 : -1);
+    setCurrent(index);
+  };
+
   const services = lang
     ? [
         "Departamento de ingeniería propia",
@@ -64,7 +69,7 @@ const ServicesSection = () => {
     >
       <div className="xl:w-[86%] w-[94%] mx-auto flex flex-col xl:flex-row rounded-xs overflow-hidden shadow-lg">
         {/* Galería de imágenes */}
-        <motion.div className="xl:w-1/2 w-full relative overflow-hidden h-64 md:h-[650px]">
+        <div className="xl:w-1/2 w-full relative overflow-hidden h-64 md:h-[650px]">
           <AnimatePresence initial={false} custom={direction}>
             <motion.img
               key={current}
@@ -85,7 +90,7 @@ const ServicesSection = () => {
           {/* Botón izquierda */}
           <button
             onClick={prevImage}
-            className="absolute top-1/2 left-1 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+            className="absolute top-1/2 left-1 -translate-y-1/2 bg-black/40 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
@@ -93,11 +98,24 @@ const ServicesSection = () => {
           {/* Botón derecha */}
           <button
             onClick={nextImage}
-            className="absolute top-1/2 right-1 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
+            className="absolute top-1/2 right-1 -translate-y-1/2 bg-black/40 text-detail p-2 rounded-full hover:bg-black/60 transition cursor-pointer"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-        </motion.div>
+
+          {/* Dots indicadores */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+            {galleryImages.map((_, index) => (
+              <span
+                key={index}
+                onClick={() => goToImage(index)}
+                className={`w-3 h-3 rounded-full cursor-pointer transition-all ${
+                  current === index ? "bg-secondary scale-125" : "bg-black/40"
+                }`}
+              ></span>
+            ))}
+          </div>
+        </div>
 
         {/* Texto */}
         <motion.div
