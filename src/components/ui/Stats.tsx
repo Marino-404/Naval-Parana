@@ -24,14 +24,17 @@ const Stats = () => {
 
   return (
     <section className="w-full bg-primary flex justify-center items-center py-12">
-      <div className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0  border-t-2 border-b-2 border-secondary">
+      <div className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden relative flex flex-col xl:flex-row items-center  py-12 xl:py-0  ">
         {/* Stats */}
         <div
           ref={ref}
-          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-20 xl:gap-0 relative xl:absolute xl:inset-0"
+          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center xl:p-6 px-12 w-full gap-16 xl:gap-0 relative xl:absolute xl:inset-0"
         >
           {stats.map((stat, i) => (
-            <div key={i} className="flex flex-col items-center">
+            <div
+              key={i}
+              className="flex flex-col items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-6 w-full xl:mx-6 rounded-md border-t-2 border-b-2 border-secondary"
+            >
               <h3 className="text-lg md:text-3xl text-secondary font-semibold uppercase">
                 {stat.label}
               </h3>

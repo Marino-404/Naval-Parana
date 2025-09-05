@@ -10,8 +10,15 @@
   --color-detail: #ccc3bc;
 }
 
+@font-face {
+  font-family: "Avant Garde Book BT";
+  font-style: normal;
+  font-weight: normal;
+  src: url("/public/fonts/Avgardd.ttf") format("woff");
+}
 body {
-  font-family: "Montserrat", sans-serif;
+  margin: 0px;
+  font-family: "Avant Garde Book BT", sans-serif;
 }
 
 .custom-font-inter {
