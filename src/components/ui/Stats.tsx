@@ -3,7 +3,7 @@ import { useAppState } from "../../store/app-state";
 
 import AnimatedCounter from "./AnimatedCounter";
 import { motion } from "framer-motion";
-import aboutnaval from "../../../public/img/camion1.jpg";
+import aboutnaval from "../../../public/img/gallery/camion1.jpg";
 
 const Stats = () => {
   const { lang } = useAppState();

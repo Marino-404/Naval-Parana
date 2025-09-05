@@ -1,5 +1,5 @@
 import { aboutNavalTextContent } from "../../utils/text-content";
-import aboutnaval from "../../../public/img/naval1.jpg";
+import aboutnaval from "../../../public/img/about.jpg";
 import { useAppState } from "../../store/app-state";
 import { HardHat } from "lucide-react";
 import { motion } from "framer-motion";

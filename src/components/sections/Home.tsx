@@ -1,6 +1,6 @@
 import { useAppState } from "../../store/app-state";
 import { aboutTextContent } from "../../utils/text-content";
-import AboutImage from "../../../public/img/about2.png";
+import AboutImage from "../../../public/img/home.png";
 import { Typewriter } from "react-simple-typewriter";
 import Button from "../ui/Button";
 import { motion } from "framer-motion";

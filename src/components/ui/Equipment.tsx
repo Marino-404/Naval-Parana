@@ -9,19 +9,19 @@ import {
 import { useState } from "react";
 
 const galleryImages = [
-  "/img/barco.jpg",
-  "/img/naval2.jpg",
-  "/img/naval3.jpg",
-  "/img/naval5.jpg",
-  "/img/naval4.jpg",
-  "/img/naval6.jpg",
-  "/img/naval7.jpg",
-  "/img/naval8.jpg",
-  "/img/naval9.jpg",
-  "/img/naval10.jpg",
-  "/img/naval11.jpg",
-  "/img/naval12.jpg",
-  "/img/naval13.jpg",
+  "/img/gallery/barco.jpg",
+  "/img/gallery/naval2.jpg",
+  "/img/gallery/naval3.jpg",
+  "/img/gallery/naval5.jpg",
+  "/img/gallery/naval4.jpg",
+  "/img/gallery/naval6.jpg",
+  "/img/gallery/naval7.jpg",
+  "/img/gallery/naval8.jpg",
+  "/img/gallery/naval9.jpg",
+  "/img/gallery/naval10.jpg",
+  "/img/gallery/naval11.jpg",
+  "/img/gallery/naval12.jpg",
+  "/img/gallery/naval13.jpg",
 ];
 
 const ServicesSection = () => {

@@ -10,7 +10,6 @@ const customers = Array.from({ length: 17 }, (_, i) => ({
 const Customers = () => {
   const { lang } = useAppState();
 
-  // duplicamos los logos para loop infinito
   const logos = [...customers, ...customers];
 
   return (
