@@ -1,43 +1,34 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import aboutnaval from "../../../public/img/camion1.jpg";
+import useInCenter from "../../hooks/useInCenter";
 import { useAppState } from "../../store/app-state";
+
 import AnimatedCounter from "./AnimatedCounter";
+import { motion } from "framer-motion";
+import aboutnaval from "../../../public/img/camion1.jpg";
 
-type Stat = {
-  label: string;
-  value: number;
-  prefix?: string;
-  suffix?: string;
-};
-
-const ServicesSection = () => {
+const Stats = () => {
   const { lang } = useAppState();
-  const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true });
+  const { ref, inCenter } = useInCenter<HTMLDivElement>();
+
+  type Stat = {
+    label: string;
+    value: number;
+    prefix?: string;
+    suffix?: string;
+  };
 
   const stats: Stat[] = [
     { label: lang ? "Servicios" : "Services", value: 25, prefix: "+" },
     { label: lang ? "Atención" : "Support", value: 24, suffix: "/7" },
-    {
-      label: lang ? "Proyectos" : "Projects",
-      value: 180,
-      prefix: "+",
-    },
+    { label: lang ? "Proyectos" : "Projects", value: 180, prefix: "+" },
   ];
 
   return (
     <section className="w-full bg-primary flex justify-center items-center py-12">
-      <div
-        className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden  relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0"
-        ref={ref}
-      >
+      <div className="xl:w-[86%] w-full mx-auto rounded-xs overflow-hidden relative flex flex-col xl:flex-row items-center bg-black/45 backdrop-blur-md xl:backdrop-blur-none py-12 xl:py-0">
         {/* Stats */}
-        <motion.div
-          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-12 xl:gap-0 relative xl:absolute xl:inset-0 "
-          initial={{ opacity: 0, y: -20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+        <div
+          ref={ref} // 👈 el hook observa este bloque, no el wrapper
+          className="flex flex-col xl:flex-row justify-center xl:justify-around items-center z-20 text-detail/85 text-center p-6 gap-12 xl:gap-0 relative xl:absolute xl:inset-0"
         >
           {stats.map((stat, i) => (
             <div key={i} className="flex flex-col items-center">
@@ -50,12 +41,12 @@ const ServicesSection = () => {
                   to={stat.value}
                   prefix={stat.prefix}
                   suffix={stat.suffix}
-                  trigger={isInView}
+                  trigger={inCenter}
                 />
               </span>
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Imagen */}
         <motion.div
@@ -77,4 +68,4 @@ const ServicesSection = () => {
   );
 };
 
-export default ServicesSection;
+export default Stats;

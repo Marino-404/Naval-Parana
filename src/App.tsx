@@ -4,7 +4,7 @@ import Footer from "./components/sections/Footer";
 import About from "./components/sections/About";
 import Contact from "./components/sections/Contact";
 import Customers from "./components/ui/Customers";
-import ImageSection from "./components/ui/ImageSection";
+import Stats from "./components/ui/Stats";
 import Services from "./components/sections/Services";
 import Equipment from "./components/ui/Equipment";
 function App() {
@@ -14,7 +14,7 @@ function App() {
       <Home />
       <About />
       <Services />
-      <ImageSection />
+      <Stats />
       <Equipment />
       <Customers />
       <Contact />

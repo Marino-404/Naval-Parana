@@ -20,11 +20,13 @@ const AnimatedCounter = ({
   const [count, setCount] = useState(from);
 
   useEffect(() => {
-    if (!trigger) return; // solo animar cuando trigger sea true
+    if (!trigger) return;
 
     let start = from;
+    setCount(from); // 🔄 resetear cada vez
     const end = to;
     const increment = (end - start) / (duration * 60);
+
     const handle = setInterval(() => {
       start += increment;
       if (start >= end) {
